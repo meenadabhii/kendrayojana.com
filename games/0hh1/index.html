@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+    <title>0h h1</title>
+    <meta name="description" content="A little logic game by Q42." />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="format-detection" content="telephone=no">
+   
+    <link rel="icon" type="image/png" href="img/icon-1024.png" />
+    <link rel="shortcut icon" href="img/icon-1024.png" />
+    <link rel="apple-touch-icon-precomposed" href="img/icon-1024.png" />
+    
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <link href="fonts/fonts.css" type="text/css" rel="stylesheet" />
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+    
+    <link rel="preload" href="../assets/images/game-name/0hh1.png" as="image" type="image/png">
+
+    <style>
+        .home-button {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .home-button:hover {
+            background-color: #ff4830;
+        }
+        @media (max-width: 600px) {
+            .home-button {
+                width: 80%;
+            }
+        }
+        .logo img {
+            margin-bottom: 30px;
+        }
+        .game-logo img {
+            margin-bottom: 60px;
+        }
+        @media (min-width: 1024px) {
+            .game-logo img {
+                width: 330px;
+            }
+            #image-loader {
+                padding-top: 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #image-loader {
+                padding-top: 15%;
+            }
+            .game-logo img {
+                margin-bottom: 50px;
+            }
+        }
+        .top-adx {
+            margin-bottom: 25px;
+        }
+    </style>
+    
+    <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" defer></script>-->
+    <!-- Analitycs Google tag (gtag.js) -->
+        <!--<script defer src="https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK"></script>-->
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5LR732BBVK');
+        </script>
+    <!-- Analitycs Google tag (gtag.js) -->
+</head>
+<body>
+    <div id="image-loader">
+        <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="game-logo">
+                <img src="../assets/images/game-name/0hh1.png">
+            </div>
+        </div>
+        <div class="loader-custome">
+            <span class="loader"></span>
+        </div>
+        <div id="button-container">
+            <button class="start-button start-g"> START GAME
+                <!-- <p data-action="play"> START GAME</p> -->
+            </button>
+            <button class="more-button more-g">MORE GAMES</button>
+        </div>
+        
+        <div class='sticky-btm' id='sticky-btm'>
+            <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+            <div class='sticky-btm-content'>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;height:70px;width:100%;line-height:70px;"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="4737125238"
+                 ></ins><script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+        </div>
+    </div>
+
+    <div id="container" style="display: none;">
+        <div id="loading" class="screen">
+            <div class="vertical">
+                <h2>Loading..</h2>
+                <p></p>
+                <div id="loadinggrid" class="board">
+                    <table data-grid="loadinggrid" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td class="odd">
+                                    <div class="tile tile-2 loading">
+                                        <div class="inner"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+        <div id="game" class="screen">
+            <p id="hintMsg" class="topMsg"></p>
+            <p id="chooseSize" class="topMsg">Select a size to play...</p>
+            <h2 id="boardsize"></h2>
+            <div id="board" class="vertical board"></div>
+
+            <div id="menugrid" class="vertical board hidden">
+                <table data-grid="menugrid" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td class="odd">
+                                <div class="tile tile-2">
+                                    <div data-action="startGame" data-size="1" class="inner"></div>
+                                </div>
+                            </td>
+                            <td class="even">
+                                <div class="tile tile-1">
+                                    <div data-action="startGame" data-size="2" class="inner"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="even">
+                                <div class="tile tile-1">
+                                    <div data-action="startGame" data-size="3" class="inner"></div>
+                                </div>
+                            </td>
+                            <td class="odd">
+                                <div class="tile tile-2">
+                                    <div data-action="startGame" data-size="4" class="inner"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="score">
+                <img id="trophy" src="img/trophy.png"><span id="scorenr">30744</span>
+            </div>
+            <div id="bar">
+                <div class="iconcon" id="homeButton" title="Home">
+                    <div id="home" class="icon"></div>
+                </div>
+                <div class="iconcon" data-action="undo" title="Undo">
+                    <div id="undo" class="icon"></div>
+                </div>
+                <div class="iconcon" data-action="back" title="Back">
+                    <div id="back" class="icon"></div>
+                </div>
+                <!-- <a class="iconcon" id="tweeturl" target="_blank" href="about:blank" data-action="tweet"><span id="tweet" class="icon"></span></a> -->
+                <div class="iconcon" data-action="help" title="Help">
+                    <div id="help" class="icon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="feelsize"></div>
+
+    <!--custom popup -->
+       <div id="custom-popup-placeholder"></div>
+    <!--custom popup -->
+    
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+  
+    
+    <script>
+        fetch('../custom-popup.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('custom-popup-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+        });
+       
+        document.querySelector(".start-button").addEventListener("click", function () {
+
+            let splashScreen = document.getElementById("image-loader");
+            if (splashScreen) {
+                splashScreen.remove();
+                // console.log("Splash screen removed");
+            }
+            let splashCss = document.querySelector('link[href="../assets/css/splash.css"]');
+            if (splashCss) {
+                splashCss.remove();
+                console.log("splash.css removed");
+            }
+            // document.getElementById('image-loader').style.display = 'none';
+            document.getElementById('container').style.display = '';
+            document.body.style.backgroundImage = 'none'; 
+            document.body.style.backgroundSize = '';
+            document.body.style.background = '#222';      
+            
+            gtag('event', 'start_game_click', {
+              'event_category': 'StartGame',
+              'event_label': '0hh1 Started'
+            });
+        });
+    </script> 
+    <script>
+        var WebFontConfig = {
+            custom: {
+                families: ['molle', 'Josefin Sans'],
+                urls: ['fonts/fonts.css']
+            },
+            active: function () {
+                //Game.start();
+                app.fontsLoaded();
+            }
+        };  
+    </script>
+    <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+    <script type="text/javascript" src="config.js" defer></script>
+    <script type="text/javascript" src="js/index.js" defer></script>
+    <script>
+        var scripts = [
+            'js/jquery-2.1.0.min.js',
+            'js/utils.js',
+            'js/state.js',
+            'js/game.js',
+            'js/grid.js',
+            'js/tile.js',
+            'js/hint.js',
+            'js/tutorial.js',
+            'js/webfont.js',
+            'js/levels.js',
+            'js/backgroundservice.js'
+        ]
+        for (var i = 0; i < scripts.length; i++) {
+            document.write('<scr' + 'ipt src="' + scripts[i] + (Config.barph ? ('?barph=' + (new Date() * 1)) : '') + '"></scr' + 'ipt>');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; 
+  background: url('../images/bg.png') no-repeat center center;
+  background-size: cover;
+}
+
+/* html, body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    height: 100%;*/
+/*    overflow: hidden;*/
+/*}*/
+
+/*body {*/
+/*     position: relative;*/
+/*    background-color: #1f2122; */
+/*}*/
+
+/*body::after {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-image: url(../images/bg.png);*/
+/*    background-size: cover;*/
+/*    opacity: 0;*/
+/*    transition: opacity 1s ease-in-out; */
+/*    z-index: -1; */
+/*}*/
+
+/*body.loaded::after {*/
+/*    opacity: 1;*/
+/*}*/
+
+
+
+body, * {
+  cursor: url("../../../assets/images/cursor-1a.png") 12 12, auto !important;
+}
+
+/* 🖼️ Center Everything */
+#image-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  gap: 15px; 
+  padding-top: 6%;
+}
+
+/*ads  Styling */
+.top-ads {
+    position: relative;
+    width: 320px;
+    height: 100px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: #dfe4ea;*/
+    margin-bottom: 15px;
+}
+@media (min-width: 1024px) {
+    .top-ads {
+        left: 14px; /* Fixed position */
+    }
+}
+        
+/* Logo */
+.logo img {
+  width: 200px;
+  height: auto;
+  margin-bottom: 50px; 
+}
+
+/* Game Name */
+.game-logo img {
+  width: 280px;
+  height: auto;
+  margin-bottom: 30px; 
+}
+
+/* Loader */
+.loader-custome {
+  position: relative;
+  margin-top: 5px;
+}
+.loader-custome .loaderBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: #e75e8d;
+  animation: borealisBar 2s linear infinite;
+}
+.loader{
+  bottom: 0%;
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 140px;
+  background-image: 
+  linear-gradient(#FFF 20px, transparent 0), 
+  linear-gradient(#FFF 20px, transparent 0), 
+  linear-gradient(#FFF 20px, transparent 0), 
+  linear-gradient(#FFF 20px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+  background-position: 0 0, 40px 0, 80px 0, 120px 0;
+  animation: pgfill 1s linear infinite;
+}
+@keyframes pgfill {
+  0% {   background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0); }
+  25% {   background-image: linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0); }
+  50% {   background-image: linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0); }
+  75% {   background-image: linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0); }
+  100% {   background-image: linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0), linear-gradient(#e75e8d 20px, transparent 0); }
+}   
+
+@keyframes borealisBar {
+  0% { width: 0%; }
+  50% { width: 100%; }
+  100% { width: 0%; }
+}
+/* #button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 35px; 
+} */
+
+#button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.start-button, .more-button {
+  padding: 12px 60px;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: "Source Code Pro", monospace;
+  background-color: #fff;
+  color: #e75e8d;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.start-g { background-color: #e75e8d; color: #fff; }
+.more-g { background-color: black; color: #fff; }
+
+.start-button:hover, .more-button:hover {
+  background-color: #fff;
+  color: #e75e8d;
+}
+
+@media (max-width: 768px) {
+  #image-loader {
+    padding-top: 23%;
+  }
+  .logo img { width: 180px; }
+  .game-logo img { width: 260px; }
+  .start-button, .more-button { width: 60%; font-size: 18px; padding: 8px 30px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logo img { width: 220px; }
+  .game-logo img { width: 320px; }
+  .start-button, .more-button { width: 65%; }
+}
+
+@media (min-width: 1024px) {
+  #image-loader { padding-top: 6%; }
+  .logo img { width: 250px; }
+  .game-logo img { width: 350px; }
+} 

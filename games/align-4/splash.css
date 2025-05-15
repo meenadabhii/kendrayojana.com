@@ -1,0 +1,24 @@
+.logo img {
+  margin-bottom: 30px;
+}
+.game-logo img {
+  margin-bottom: 60px;
+}
+@media (max-width: 768px) {
+  .logo img {
+      width: 255px;
+  }
+  #image-loader {
+    padding-top: 30%;
+  }
+  .game-logo img {
+      width: 330px;
+  }
+}
+
+@media (max-width: 768px) {
+  .start-button, .more-button {
+      font-size: 19px;
+      padding: 12px 30px;
+  }
+}
