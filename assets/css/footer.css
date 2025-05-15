@@ -1,0 +1,194 @@
+.gaming-library {
+    background-color:#27292a;
+    margin-top: 25px;
+    padding: 25px;
+}
+.heading-section h4 {
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+/* .abut-h4 {
+    margin-bottom: 15px;
+    margin-left: 10px;
+} */
+.abut-heaading {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: #fff;
+}
+.ft-img {
+    width: 50%;
+    max-width: 150px; /* Prevents oversized images */
+}
+.abut-p {
+    font-size: 15px;
+    color: #ffffffde;
+    line-height: 23px;
+    margin: 10px;
+    margin-left: 10px;
+}
+
+
+/* Footer section */
+.gaming-footer {
+    margin-top: 25px;
+    background-color: #27292a;
+    padding: 40px 0;
+    color: white;
+    /* text-align: center; */
+}
+/* Footer Content */
+.footer-first-part {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.footer-content p {
+    font-size: 14px;
+    color: #ddd;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* Games and Menu Section */
+/* .footer-menu-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+} */
+
+/* .menu-footer-part, .games-footer-part {
+    width: 48%;
+    text-align: left;
+} */
+
+.pages-menu-part h6,
+.pages-menu-name h6 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.pages-menu a {
+    display: block;
+    font-size: 14px;
+    color: #ddd;
+    padding: 5px 0;
+}
+
+.pages-menu a:hover {
+    color: #ec6090;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-list li {
+    padding: 5px 0;
+}
+
+.menu-list li a {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.menu-list li a:hover {
+    color: #ec6090;
+}
+
+/* Social Media Icons */
+.top-social-icon {
+    display: flex;
+    justify-content: center;
+    gap: 0px;
+    margin-top: 25px;
+}
+@media (min-width: 768px){
+    .col-md-1 {
+        width: 4.333333%;
+    }
+}
+
+
+.top-social-icon a {
+    display: inline-block;
+}
+
+.top-social-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Copyright Section */
+.copyright-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+    color: #bbb;
+}
+
+.copyright-text a {
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    /* .footer-menu-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    } */
+    /* .menu-footer-part, .games-footer-part {
+        width: 100%;
+        margin-bottom: 15px;
+    } */
+
+    .top-social-icon {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content p {
+        font-size: 13px;
+    }
+
+    .top-social-icon img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gaming-footer {
+        padding: 25px;
+    }
+    .footer-content p {
+        font-size: 10px;
+    }
+    .top-social-icon img {
+        width: 30px;
+        height: 30px;
+    }
+}
+.ftr-cpy {
+    font-size: 15px;
+    color: #ffffffde;
+    line-height: 23px;
+    margin: 10px;
+    margin-left: 10px;
+}
+
+.cpy-footer {
+    cursor: url("../images/cursor-1a.png") 0 0, auto !important;
+} 
