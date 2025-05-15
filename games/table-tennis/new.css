@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    background: #073b4c;
+    font-family: "Consolas";
+    color: #000;
+  }
+  body > div {
+    width: 56rem;
+    max-width: 100%;
+    height: 100rem;
+    margin: auto;
+    position: absolute;
+    overflow: hidden;
+    background: #3dc1ec;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+  }
+  body > div > div {
+    width: 100%;
+    height: 100%;
+    transform: translate3d(0, -8rem, 0) scale(0.9);
+  }
+  body div > div *:not(label),
+  body div > div *:before,
+  body div > div *:after,
+  body sig *:not(label),
+  body sig *:before,
+  body sig *:after,
+  body player1 *:not(label),
+  body player1 *:before,
+  body player1 *:after {
+    box-sizing: border-box;
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+  }

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <title>Stacker</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+    <link rel="preload" href="../assets/images/game-name/stacker.png" as="image" type="image/png">
+
+  <style>
+    .home-button {
+      color: white;
+      font-size: 30px !important;
+      letter-spacing: 0.05em;
+      margin: 20px auto 0;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* .home-button {
+      position: absolute;
+      bottom: 7%;   
+      left: 50%;
+      transform: translate(-50%, -50%); 
+      color: white;
+      font-size: 30px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    } */
+    .home-button:hover {
+      color :#fa7f7f;
+    }
+    @media (max-width: 768px) {
+      .home-button {
+        font-size: 4vw; 
+        bottom: 0%;
+      }
+    }
+    @media (max-width: 480px) {
+      .home-button {
+        font-size: 5vw;
+        bottom: 2%;
+      }
+    }
+    /*.logo img {
+        margin-bottom: 30px;
+    }*/
+    #image-loader {
+            padding-top: 15%;
+        }
+    .top-adx{
+        margin-bottom: 14%;
+    }
+        
+    @media (min-width: 1024px) {
+        #image-loader {
+            padding-top: 4%;
+        }
+        .top-adx {
+            left: 24px;
+        }
+    }
+    @media (max-width: 768px) {
+    .game-logo img {
+        width: 230px;
+    }
+}
+  </style>
+</head>
+<body>
+
+    <div id="image-loader">
+        <!-- sticky ads start -->
+        <div id="FloatAdx-left">
+          <ins class="adsbygoogle"
+            style="display:inline-block;width:160px;height:600px"
+            data-ad-client="ca-pub-8263720079379422"
+            data-ad-slot="2931055714"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <div id="FloatAdx-right">
+          <ins class="adsbygoogle"
+            style="display:inline-block;width:160px;height:600px"
+            data-ad-client="ca-pub-8263720079379422"
+            data-ad-slot="2931055714"></ins>
+          <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+        <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        <div class="game-logo">
+            <img src="../assets/images/game-name/stacker.png">
+        </div>
+    </div>
+    <div class="loader-custome">
+        <span class="loader"></span>
+    </div>
+    <div id="button-container">
+        <button class="start-button start-g">START GAME</button>
+        <button class="more-button more-g">MORE GAMES</button>
+    </div>
+    <div class='sticky-btm' id='sticky-btm'>
+        <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+        <div class='sticky-btm-content'>
+        <ins class="adsbygoogle"
+             style="display:inline-block;height:70px;width:100%;line-height:70px;"
+             data-ad-client="ca-pub-8263720079379422"
+             data-ad-slot="4737125238"
+             ></ins><script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+    </div>
+</div>
+
+  <div id="main" style="display: none;">
+    <h1><a class="home-button">Back to Home</a></h1>
+    <form>
+      <input id="on-3-1" name="r-1" type="radio" value="1-1" />
+      <input id="on-3-2" name="r-1" type="radio" value="1-2" />
+      <input id="on-3-3" name="r-1" type="radio" value="1-3" />
+      <input id="on-3-4" name="r-1" type="radio" value="1-4" />
+      <input id="on-3-5" name="r-1" type="radio" value="1-5" /><input id="tw-3-1" name="r-2" type="radio"
+        value="2-1" /><input id="tw-3-2" name="r-2" type="radio" value="2-2" /><input id="tw-3-3" name="r-2"
+        type="radio" value="2-3" /><input id="tw-3-4" name="r-2" type="radio" value="2-4" /><input id="tw-3-5"
+        name="r-2" type="radio" value="2-5" /><input id="thr-1-1" name="r-3" type="radio" value="3-1-1" /><input
+        id="thr-1-2" name="r-3" type="radio" value="3-1-2" /><input id="thr-1-3" name="r-3" type="radio"
+        value="3-1-3" /><input id="thr-1-4" name="r-3" type="radio" value="3-1-4" /><input id="thr-1-5" name="r-3"
+        type="radio" value="3-1-5" /><input id="thr-1-6" name="r-3" type="radio" value="3-1-6" /><input id="thr-1-7"
+        name="r-3" type="radio" value="3-1-7" /><input id="thr-2-1" name="r-3" type="radio" value="3-2-1" /><input
+        id="thr-2-2" name="r-3" type="radio" value="3-2-2" /><input id="thr-2-3" name="r-3" type="radio"
+        value="3-2-3" /><input id="thr-2-4" name="r-3" type="radio" value="3-2-4" /><input id="thr-2-5" name="r-3"
+        type="radio" value="3-2-5" /><input id="thr-2-6" name="r-3" type="radio" value="3-2-6" /><input id="thr-3-1"
+        name="r-3" type="radio" value="3-3-1" /><input id="thr-3-2" name="r-3" type="radio" value="3-3-2" /><input
+        id="thr-3-3" name="r-3" type="radio" value="3-3-3" /><input id="thr-3-4" name="r-3" type="radio"
+        value="3-3-4" /><input id="thr-3-5" name="r-3" type="radio" value="3-3-5" /><input id="thr-1-1" name="r-3"
+        type="radio" value="3-1-1" /><input id="thr-1-2" name="r-3" type="radio" value="3-1-2" /><input id="thr-1-3"
+        name="r-3" type="radio" value="3-1-3" /><input id="thr-1-4" name="r-3" type="radio" value="3-1-4" /><input
+        id="thr-1-5" name="r-3" type="radio" value="3-1-5" /><input id="thr-1-6" name="r-3" type="radio"
+        value="3-1-6" /><input id="thr-1-7" name="r-3" type="radio" value="3-1-7" /><input id="thr-2-1" name="r-3"
+        type="radio" value="3-2-1" /><input id="thr-2-2" name="r-3" type="radio" value="3-2-2" /><input id="thr-2-3"
+        name="r-3" type="radio" value="3-2-3" /><input id="thr-2-4" name="r-3" type="radio" value="3-2-4" /><input
+        id="thr-2-5" name="r-3" type="radio" value="3-2-5" /><input id="thr-2-6" name="r-3" type="radio"
+        value="3-2-6" /><input id="fr-1-1" name="r-4" type="radio" value="4-1-1" /><input id="fr-1-2" name="r-4"
+        type="radio" value="4-1-2" /><input id="fr-1-3" name="r-4" type="radio" value="4-1-3" /><input id="fr-1-4"
+        name="r-4" type="radio" value="4-1-4" /><input id="fr-1-5" name="r-4" type="radio" value="4-1-5" /><input
+        id="fr-1-6" name="r-4" type="radio" value="4-1-6" /><input id="fr-1-7" name="r-4" type="radio"
+        value="4-1-7" /><input id="fr-2-1" name="r-4" type="radio" value="4-2-1" /><input id="fr-2-2" name="r-4"
+        type="radio" value="4-2-2" /><input id="fr-2-3" name="r-4" type="radio" value="4-2-3" /><input id="fr-2-4"
+        name="r-4" type="radio" value="4-2-4" /><input id="fr-2-5" name="r-4" type="radio" value="4-2-5" /><input
+        id="fr-2-6" name="r-4" type="radio" value="4-2-6" /><input id="fv-1-1" name="r-5" type="radio"
+        value="5-1-1" /><input id="fv-1-2" name="r-5" type="radio" value="5-1-2" /><input id="fv-1-3" name="r-5"
+        type="radio" value="5-1-3" /><input id="fv-1-4" name="r-5" type="radio" value="5-1-4" /><input id="fv-1-5"
+        name="r-5" type="radio" value="5-1-5" /><input id="fv-1-6" name="r-5" type="radio" value="5-1-6" /><input
+        id="fv-1-7" name="r-5" type="radio" value="5-1-7" /><input id="fv-2-1" name="r-5" type="radio"
+        value="5-2-1" /><input id="fv-2-2" name="r-5" type="radio" value="5-2-2" /><input id="fv-2-3" name="r-5"
+        type="radio" value="5-2-3" /><input id="fv-2-4" name="r-5" type="radio" value="5-2-4" /><input id="fv-2-5"
+        name="r-5" type="radio" value="5-2-5" /><input id="fv-2-6" name="r-5" type="radio" value="5-2-6" /><input
+        id="sx-1-1" name="r-6" type="radio" value="6-1-1" /><input id="sx-1-2" name="r-6" type="radio"
+        value="6-1-2" /><input id="sx-1-3" name="r-6" type="radio" value="6-1-3" /><input id="sx-1-4" name="r-6"
+        type="radio" value="6-1-4" /><input id="sx-1-5" name="r-6" type="radio" value="6-1-5" /><input id="sx-1-6"
+        name="r-6" type="radio" value="6-1-6" /><input id="sx-1-7" name="r-6" type="radio" value="6-1-7" /><input
+        id="svn-1-1" name="r-7" type="radio" value="7-1-1" /><input id="svn-1-2" name="r-7" type="radio"
+        value="7-1-2" /><input id="svn-1-3" name="r-7" type="radio" value="7-1-3" /><input id="svn-1-4" name="r-7"
+        type="radio" value="7-1-4" /><input id="svn-1-5" name="r-7" type="radio" value="7-1-5" /><input id="svn-1-6"
+        name="r-7" type="radio" value="7-1-6" /><input id="svn-1-7" name="r-7" type="radio" value="7-1-7" /><input
+        id="ght-1-1" name="r-8" type="radio" value="8-1-1" /><input id="ght-1-2" name="r-8" type="radio"
+        value="8-1-2" /><input id="ght-1-3" name="r-8" type="radio" value="8-1-3" /><input id="ght-1-4" name="r-8"
+        type="radio" value="8-1-4" /><input id="ght-1-5" name="r-8" type="radio" value="8-1-5" /><input id="ght-1-6"
+        name="r-8" type="radio" value="8-1-6" /><input id="ght-1-7" name="r-8" type="radio" value="8-1-7" /><input
+        id="nn-1-1" name="r-9" type="radio" value="9-1-1" /><input id="nn-1-2" name="r-9" type="radio"
+        value="9-1-2" /><input id="nn-1-3" name="r-9" type="radio" value="9-1-3" /><input id="nn-1-4" name="r-9"
+        type="radio" value="9-1-4" /><input id="nn-1-5" name="r-9" type="radio" value="9-1-5" /><input id="nn-1-6"
+        name="r-9" type="radio" value="9-1-6" /><input id="nn-1-7" name="r-9" type="radio" value="9-1-7" /><input
+        id="tn-1-1" name="r-10" type="radio" value="10-1-1" /><input id="tn-1-2" name="r-10" type="radio"
+        value="10-1-2" /><input id="tn-1-3" name="r-10" type="radio" value="10-1-3" /><input id="tn-1-4" name="r-10"
+        type="radio" value="10-1-4" /><input id="tn-1-5" name="r-10" type="radio" value="10-1-5" /><input id="tn-1-6"
+        name="r-10" type="radio" value="10-1-6" /><input id="tn-1-7" name="r-10" type="radio" value="10-1-7" />
+      <div class="controls">
+        <div class="control">
+          <div class="rs">
+            <div class="r r-1-1">
+              <label for="on-1-1"></label>
+              <label for="on-1-2"></label>
+              <label for="on-1-3"></label>
+              <label for="on-1-4"></label>
+              <label for="on-1-5"></label>
+              <label for="on-1-6"></label>
+              <label for="on-1-7"></label>
+            </div>
+            <div class="r r-1-2">
+              <label for="on-2-1"></label>
+              <label for="on-2-2"></label>
+              <label for="on-2-3"></label>
+              <label for="on-2-4"></label>
+              <label for="on-2-5"></label>
+              <label for="on-2-6"></label>
+            </div>
+            <div class="r r-1-3">
+              <label for="on-3-1"></label>
+              <label for="on-3-2"></label>
+              <label for="on-3-3"></label>
+              <label for="on-3-4"></label>
+              <label for="on-3-5"></label>
+            </div>
+            <div class="r r-2-1">
+              <label for="tw-1-1"></label>
+              <label for="tw-1-2"></label>
+              <label for="tw-1-3"></label>
+              <label for="tw-1-4"></label>
+              <label for="tw-1-5"></label>
+              <label for="tw-1-6"></label>
+              <label for="tw-1-7"></label>
+            </div>
+            <div class="r r-2-2">
+              <label for="tw-2-1"></label>
+              <label for="tw-2-2"></label>
+              <label for="tw-2-3"></label>
+              <label for="tw-2-4"></label>
+              <label for="tw-2-5"></label>
+              <label for="tw-2-6"></label>
+            </div>
+            <div class="r r-2-3">
+              <label for="tw-3-1"></label>
+              <label for="tw-3-2"></label>
+              <label for="tw-3-3"></label>
+              <label for="tw-3-4"></label>
+              <label for="tw-3-5"></label>
+            </div>
+            <div class="r r-3-1">
+              <label for="thr-1-1"></label>
+              <label for="thr-1-2"></label>
+              <label for="thr-1-3"></label>
+              <label for="thr-1-4"></label>
+              <label for="thr-1-5"></label>
+              <label for="thr-1-6"></label>
+              <label for="thr-1-7"></label>
+            </div>
+            <div class="r r-3-2">
+              <label for="thr-2-1"></label>
+              <label for="thr-2-2"></label>
+              <label for="thr-2-3"></label>
+              <label for="thr-2-4"></label>
+              <label for="thr-2-5"></label>
+              <label for="thr-2-6"></label>
+            </div>
+            <div class="r r-3-3">
+              <label for="thr-3-1"></label>
+              <label for="thr-3-2"></label>
+              <label for="thr-3-3"></label>
+              <label for="thr-3-4"></label>
+              <label for="thr-3-5"></label>
+            </div>
+            <div class="r r-4-1">
+              <label for="fr-1-1"></label>
+              <label for="fr-1-2"></label>
+              <label for="fr-1-3"></label>
+              <label for="fr-1-4"></label>
+              <label for="fr-1-5"></label>
+              <label for="fr-1-6"></label>
+              <label for="fr-1-7"></label>
+            </div>
+            <div class="r r-4-2">
+              <label for="fr-2-1"></label>
+              <label for="fr-2-2"></label>
+              <label for="fr-2-3"></label>
+              <label for="fr-2-4"></label>
+              <label for="fr-2-5"></label>
+              <label for="fr-2-6"></label>
+            </div>
+            <div class="r r-5-1">
+              <label for="fv-1-1"></label>
+              <label for="fv-1-2"></label>
+              <label for="fv-1-3"></label>
+              <label for="fv-1-4"></label>
+              <label for="fv-1-5"></label>
+              <label for="fv-1-6"></label>
+              <label for="fv-1-7"></label>
+            </div>
+            <div class="r r-5-2">
+              <label for="fv-2-1"></label>
+              <label for="fv-2-2"></label>
+              <label for="fv-2-3"></label>
+              <label for="fv-2-4"></label>
+              <label for="fv-2-5"></label>
+              <label for="fv-2-6"></label>
+            </div>
+            <div class="r r-6-1">
+              <label for="sx-1-1"></label>
+              <label for="sx-1-2"></label>
+              <label for="sx-1-3"></label>
+              <label for="sx-1-4"></label>
+              <label for="sx-1-5"></label>
+              <label for="sx-1-6"></label>
+              <label for="sx-1-7"></label>
+            </div>
+            <div class="r r-6-2">
+              <label for="sx-2-1"></label>
+              <label for="sx-2-2"></label>
+              <label for="sx-2-3"></label>
+              <label for="sx-2-4"></label>
+              <label for="sx-2-5"></label>
+              <label for="sx-2-6"></label>
+            </div>
+            <div class="r r-7-1">
+              <label for="svn-1-1"></label>
+              <label for="svn-1-2"></label>
+              <label for="svn-1-3"></label>
+              <label for="svn-1-4"></label>
+              <label for="svn-1-5"></label>
+              <label for="svn-1-6"></label>
+              <label for="svn-1-7"></label>
+            </div>
+            <div class="r r-8-1">
+              <label for="ght-1-1"></label>
+              <label for="ght-1-2"></label>
+              <label for="ght-1-3"></label>
+              <label for="ght-1-4"></label>
+              <label for="ght-1-5"></label>
+              <label for="ght-1-6"></label>
+              <label for="ght-1-7"></label>
+            </div>
+            <div class="r r-9-1">
+              <label for="nn-1-1"></label>
+              <label for="nn-1-2"></label>
+              <label for="nn-1-3"></label>
+              <label for="nn-1-4"></label>
+              <label for="nn-1-5"></label>
+              <label for="nn-1-6"></label>
+              <label for="nn-1-7"></label>
+            </div>
+            <div class="r r-10-1">
+              <label for="tn-1-1"></label>
+              <label for="tn-1-2"></label>
+              <label for="tn-1-3"></label>
+              <label for="tn-1-4"></label>
+              <label for="tn-1-5"></label>
+              <label for="tn-1-6"></label>
+              <label for="tn-1-7"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bs">
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="div r">
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+          <div class="b"></div>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div class="results">
+        <div class="go">
+          <span>Game<br /> Over</span>
+          <div class="minor"></div>
+          <button type="reset">Again</button>
+        </div>
+        <div class="win">
+          <span>You<br /> Win</span>
+          <div class="major"></div>
+          <button type="reset">Again</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+  
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+      fetch('../custom-popup.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('custom-popup-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+      });
+      document.querySelector(".start-button").addEventListener("click", function () {
+        let gameElement = document.documentElement; // Fullscreen the whole page
+
+        if (gameElement.requestFullscreen) {
+            gameElement.requestFullscreen();
+        } else if (gameElement.mozRequestFullScreen) { // Firefox
+            gameElement.mozRequestFullScreen();
+        } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+            gameElement.webkitRequestFullscreen();
+        } else if (gameElement.msRequestFullscreen) { // IE/Edge
+            gameElement.msRequestFullscreen();
+        }
+        document.getElementById('image-loader').style.display = 'none';
+        document.getElementById('main').style.display = '';
+
+        document.body.style.background = '#172031';
+        document.body.style.backgroundAttachment = 'fixed';
+        document.body.style.display = 'flex';
+        document.body.style.flexDirection = 'column';
+        document.body.style.fontFamily = "'VT323', monospace";
+        document.body.style.alignItems = 'center';
+        document.body.style.justifyContent = 'center';
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Stacker Started'
+        });
+      });
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Table Tennis</title>
+    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+   	<link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+   	 <link rel="preload" href="../assets/images/game-name/table-tennis.png" as="image" type="image/png">
+	<!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+    <style>
+        .home-button {
+            color: black;
+        }
+        .logo img {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-loader">
+	    <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="game-logo">
+                <img src="../assets/images/game-name/table-tennis.png">
+            </div>
+        </div>
+        <div class="loader-custome">
+            <span class="loader"></span>
+        </div>
+        <div id="button-container">
+            <button class="start-button start-g" id="start-game">START GAME</button>
+            <button class="more-button more-g">MORE GAMES</button>
+        </div>
+        
+        <div class='sticky-btm' id='sticky-btm'>
+            <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+            <div class='sticky-btm-content'>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;height:70px;width:100%;line-height:70px;"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="4737125238"
+                 ></ins><script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+        </div>
+    </div>     
+   
+    <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+        });
+        document.querySelector(".start-button").addEventListener("click", function () {
+            let gameElement = document.documentElement; // Fullscreen the whole page
+            if (gameElement.requestFullscreen) {
+                gameElement.requestFullscreen();
+            } else if (gameElement.mozRequestFullScreen) { // Firefox
+                gameElement.mozRequestFullScreen();
+            } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+                gameElement.webkitRequestFullscreen();
+            } else if (gameElement.msRequestFullscreen) { // IE/Edge
+                gameElement.msRequestFullscreen();
+            }
+
+            let splashScreen = document.getElementById("image-loader");
+            if (splashScreen) {
+                splashScreen.style.display = 'none';
+                // console.log("Splash screen removed");
+            }
+            fetch('game.html')
+            .then(response => response.text())
+            .then(data => {
+                // Replace the entire body with the content from game.html
+                document.body.innerHTML = data;
+                
+                // Dynamically add game styles
+                let link2 = document.createElement("link");
+                link2.rel = "stylesheet";
+                link2.href = "styles.css"; // Assuming styles.css is your game styles
+                document.head.appendChild(link2);
+            })
+            .catch(error => {
+                console.error('Error loading game.html:', error);
+            });
+            
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Table Tennis Started'
+        });
+    });   
+    
+    // MORE BUTTON CLICK INTRACTION --------------------------------------------------------------
+    const moreButton = document.querySelector(".more-button");
+    if (moreButton) {
+        moreButton.addEventListener("click", function () {
+            // console.log("more");
+            gtag('event', 'more_games_click', {
+                'event_category': 'Navigation',
+                'event_label': 'More Games Button'
+            });
+            window.location.href = "https://baseapk.me"; 
+        });
+    }
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Simon Says</title>
+    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+	<!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+	<link rel="preload" href="../assets/images/game-name/simon-says.png" as="image" type="image/png">
+    <style>
+        .home-icon {
+          background: var(--bg);
+          color: var(--gray-0);
+          height: 48px;
+          aspect-ratio: 1;
+          padding: 0;
+          border: none;
+          /* position: fixed;  */
+          top: 1rem;
+          left: 1rem;  
+          border-radius: 50%;
+          display: grid;
+          place-items: center;
+          opacity: 0.25;
+          cursor: pointer;
+        }
+        .home-icon:hover {
+            opacity: 1;
+        }
+        .home-icon svg {
+            width: 65%;
+            fill: var(--gray-0); 
+        }
+        .logo img {
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            #image-loader {
+                padding-top: 15%;
+            }
+        }
+        .game-logo img {
+            margin-bottom: 40px;
+        }
+        .top-adx {
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+  <div id="image-loader">
+    <!-- sticky ads start -->
+	<div id="FloatAdx-left">
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:160px;height:600px"
+			data-ad-client="ca-pub-8263720079379422"
+			data-ad-slot="2931055714"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+	<div id="FloatAdx-right">
+		<ins class="adsbygoogle"
+			style="display:inline-block;width:160px;height:600px"
+			data-ad-client="ca-pub-8263720079379422"
+			data-ad-slot="2931055714"></ins>
+		<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+    <!-- sticky ads end -->
+
+    <div id="image-container">
+        <div class="top-adx" style="height: 100px !important;">
+            <!-- Start game screen -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:100px"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="8787023214"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        <div class="game-logo">
+            <img src="../assets/images/game-name/simon-says.png">
+        </div>
+    </div>
+    <div class="loader-custome">
+        <span class="loader"></span>
+    </div>
+    <div id="button-container">
+        <button class="start-button start-g" id="start-btn">START GAME</button>
+        <button class="more-button more-g">MORE GAMES</button>
+    </div>
+    
+    <div class='sticky-btm' id='sticky-btm'>
+        <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+        <div class='sticky-btm-content'>
+        <ins class="adsbygoogle"
+             style="display:inline-block;height:70px;width:100%;line-height:70px;"
+             data-ad-client="ca-pub-8263720079379422"
+             data-ad-slot="4737125238"
+             ></ins><script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+    </div>
+        
+  </div>
+  <div id="main" style="display: none;">
+    <!--<a href="https://baseapk.me">-->
+      <button class="home-icon" type="button" title="Home">
+        <svg class="" viewBox="0 0 24 24">
+            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path>
+          </svg>
+        </button>
+    <!--</a>-->
+    <h1>Simon Says Game</h1>
+    <div id="game-container">
+      <div class="color-btn" id="green"></div>
+      <div class="color-btn" id="red"></div>
+      <div class="color-btn" id="yellow"></div>
+      <div class="color-btn" id="blue"></div>
+    </div>
+    <div id="game-status">
+      <p class="my-text" id="sequence" style="display: none;">
+        Current Sequence: <span id="sequence-display">-</span>
+      </p>
+      <p class="my-text" id="clicks" style="display: none;">
+        Click Count: <span id="click-count">0</span>
+      </p>
+      <p class="my-text" id="status" style="display: none;">
+        Game Status: <span id="status">Waiting...</span>
+      </p>
+    </div>
+    <button id="play-again-btn">Play Again</button>
+    <p id="level-message" style="display: none;"></p>
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+  
+<script type="text/javascript" src="../assets/js/common.js" defer></script>
+<script>
+    fetch('../custom-popup.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('custom-popup-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error("Error loading footer:", error));
+</script>
+<script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+<script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+<script src="script.js" defer></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+        let gameElement = document.documentElement; // Fullscreen the whole page
+        if (gameElement.requestFullscreen) {
+            gameElement.requestFullscreen();
+        } else if (gameElement.mozRequestFullScreen) { // Firefox
+            gameElement.mozRequestFullScreen();
+        } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+            gameElement.webkitRequestFullscreen();
+        } else if (gameElement.msRequestFullscreen) { // IE/Edge
+            gameElement.msRequestFullscreen();
+        }
+        document.getElementById('image-loader').style.display = 'none';
+        document.getElementById('main').style.display = '';
+
+        document.body.style.fontFamily = "Arial, Helvetica, sans-serif";
+        document.body.style.background = '#f4f4f9';
+        document.body.style.textAlign = 'center';
+        // document.body.style.padding = '50px';
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Simon Says Started'
+        });
+    });
+</script>
+</body>
+</html>

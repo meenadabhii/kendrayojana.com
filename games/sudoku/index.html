@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+    <title>Sudoku Game</title>
+    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+    <link rel="preload" href="../assets/images/game-name/sudoku.png" as="image" type="image/png">
+	<!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+    <style>
+        .home-button {
+            color: #212529;
+        }
+        .home-button:hover {
+            color: #212529;
+        }
+        /* body, html {
+            overflow: hidden; 
+            height: 100%;     
+            margin: 0;         
+        } */
+        .new-card {
+            background: #fff;
+            /* width: fit-content; */
+            /* display: flex; */
+            /* max-width: 41.5%; */
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14);
+            float: center;
+            padding: 32px 23px 32px 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            flex-wrap: wrap;
+            justify-content: center;  
+            flex-wrap: wrap; 
+            gap: 10px;
+            width: fit-content; 
+            max-width: 100%;
+            margin: 32px auto 0 auto; 
+        }
+        .option-button {
+            display: block;
+            margin: 12px 15px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            box-shadow: 0 6px 10px 1px rgba(0, 0, 0, 0.14);
+            border-radius: 2px;
+            transition: all 0.5s;
+            width: 210px; 
+            text-align: center;
+            padding: 10px;
+        }
+        /* .option-button {
+            display: block;
+            margin: 16px 8px 16px 30px;
+            width: 130px;
+            padding: 8px 10px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            box-shadow: 0 6px 10px 1px rgba(0, 0, 0, 0.14);
+            border-radius: 2px;
+            transition: all 0.5s;
+            text-align: left;
+        } */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .logo img {
+                width: 420px;
+            }
+        }
+        .logo img {
+            margin-bottom: 60px;
+        }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .game-logo img {
+                width: 520px;
+            }
+        }
+         @media (min-width: 1024px) {
+            #image-loader {
+                padding-top: 4%;
+            }
+        }
+        /* .game-logo img {
+            margin-bottom: 120px;
+        } */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .start-button, .more-button {
+                width: 45%;
+            }
+        }
+        #button-container {
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .game-logo img {
+                width: 220px;
+                margin-bottom: 40px;
+            }
+            #image-loader {
+                padding-top: 9%;
+            }
+        }
+        
+        .top-adx {
+            left: 24%;
+            margin-bottom: 10%;
+        }
+
+        #image-loader {
+            padding-top: 27%;
+        }
+        @media (min-width: 1024px) {
+            .top-adx {
+                left: 23px;
+            }
+            #image-loader {
+                padding-top: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- start splash -->
+    <div id="image-loader">
+	    <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="game-logo">
+                <img src="../assets/images/game-name/sudoku.png">
+            </div>
+        </div>
+        <div class="loader-custome">
+            <span class="loader"></span>
+        </div>
+        <div id="button-container">
+            <button class="start-button start-g">START GAME</button>
+            <button class="more-button more-g">MORE GAMES</button>
+        </div>
+        
+        <div class='sticky-btm' id='sticky-btm'>
+            <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+            <div class='sticky-btm-content'>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;height:70px;width:100%;line-height:70px;"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="4737125238"
+                 ></ins><script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+        </div>
+    </div>
+    <!-- end splash -->
+    
+    <!-- game start -->
+    <div class="main" id="main" style="display: none;">
+        <!-- <section class="wrapper" oncontextmenu="return false"> -->
+        <section class="wrapper">
+          <section class="game">
+            <div id="gameDiv">
+                
+                <!-- <nav class="app-bar">
+                    <div class="bar-font title"> <a href="https://baseapk.me" class="home-button">Back to Home</a></div>
+                    <div id="moreoption-sec" class="more-option-div more-button">
+                        <button onclick="moreOptionButtonClick()" class="button bar-button">
+                            <span class="material-icons">more_vert</span>
+                        </button>
+                        <div id="more-option-list" style="visibility: hidden;max-height: 10px;max-width: 40px;min-width: 40px;"
+                            class="more-option-list">
+                            <button onclick="hintButtonClick()" ripple-color="#003c8f"
+                                class="button nav-item vertical-adjust">Hint</button>
+                            <button onclick="restartButtonClick()" ripple-color="#003c8f"
+                                class="button nav-item vertical-adjust">Restart</button>
+                            <button onclick="SurrenderButtonClick()" ripple-color="tomato"
+                                class="button nav-item vertical-adjust">Surrender</button>
+                        </div>
+                    </div>
+            
+                    <button id="pause-btn" onclick="pauseGameButtonClick()" class="button bar-button more-button">
+                        <span id="pause-icon" class="material-icons">pause</span>
+                        <span id="pause-text">Pause</span>
+                    </button>
+                    <button id="check-btn" onclick="checkButtonClick()" class="button bar-button more-button">
+                        <span class="material-icons">done_all</span>
+                        <span>Check</span>
+                    </button>
+                    <button id="isunique-btn" style="display: none;" onclick="isUniqueButtonClick();"
+                        class="button bar-button more-button">
+                        <span class="material-icons">call_split</span>
+                        <span>Is unique</span>
+                    </button>
+                    <button id="solve-btn" style="display: none;" onclick="solveButtonClick()"
+                        class="button bar-button more-button">
+                        <span class="material-icons">border_color</span>
+                        <span>Solve</span>
+                    </button>
+                </nav>-->
+
+                <div id="hamburger-menu" class="hamburger-menu">
+                    <nav id="nav-menu" class="nav-menu">
+                        <div class="nav-head">
+                            <div class="nav-head-img">
+                                <img src="https://image.ibb.co/jmuOKn/icon.jpg" art="" />
+                            </div>
+                            <div class="nav-head-title">Sudoku</div>
+                        </div>
+                        <ul class="nav-items">
+                            <button onclick="showDialogClick('dialog');" ripple-color="#003c8f"
+                                class="button nav-item vertical-adjust">
+                                <div>
+                                    <span class="material-icons">add</span>
+                                    <span style="left:12px;">New game</span>
+                                </div>
+                            </button>
+                            <!-- <button onclick="sudokuSolverMenuClick();" ripple-color="#003c8f"
+                                class="button nav-item vertical-adjust">
+                                <div>
+                                    <span class="material-icons">edit</span>
+                                    <span style="left:12px;">Sudoku Solver</span>
+                                </div>
+                            </button>
+                            <button onclick="showDialogClick('about-dialog');" ripple-color="#003c8f"
+                                class="button nav-item vertical-adjust">
+                                <div>
+                                    <span class="material-icons">star</span>
+                                    <span style="left:12px;">About</span>
+                                </div>
+                            </button>
+                            <div class="bar-footer">
+                                <ul>
+                                    <a href="#" class="bar-footer-link">Site feedback</a>
+                                    <a href="#" class="bar-footer-link">Privacy</a>
+                                    <a href="#" class="bar-footer-link">Terms</a>
+                                </ul>
+                            </div> -->
+                        </ul>
+                    </nav>
+                    <div class="nav-menu-blank" onclick="hideHamburgerClick()">
+                    </div>
+                </div>
+            
+                <!-- <div class="floating">
+                    <button onclick="showDialogClick('dialog');" class="button floating-btn vertical-adjust">
+                        <span class="material-icons">add</span>
+                        <span style="left:12px;">Add</span>
+                    </button>
+                </div> -->
+            
+                <div id="dialog" class="dialog">
+                    <div id="dialog-box" class="dialog-content">
+                        <div class="dialog-header">New game</div>
+            
+                        <div class="dialog-body">
+                            <p>Select game difficulty to get started.</p>
+                            <ul>
+                                <li class="radio-option">
+                                    <label for="very-easy">
+                                        <input id="very-easy" value="very easy" type="radio" name="difficulty"> Very easy
+                                    </label>
+                                </li>
+                                <li class="radio-option">
+                                    <label for="easy">
+                                        <input id="easy" value="easy" type="radio" name="difficulty"> Easy
+                                    </label>
+                                </li>
+                                <li class="radio-option">
+                                    <label for="normal">
+                                        <input id="normal" value="normal" type="radio" name="difficulty"> Normal
+                                    </label>
+                                </li>
+                                <li class="radio-option">
+                                    <label for="hard">
+                                        <input id="hard" value="hard" type="radio" name="difficulty"> Hard
+                                    </label>
+                                </li>
+                                <li class="radio-option">
+                                    <label for="very-hard">
+                                        <input id="very-hard" value="expert" type="radio" name="difficulty"> Expert
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+            
+                        <div class="dialog-footer">
+                            <button onclick="startGameButtonClick();" ripple-color="#003c8f"
+                                class="button dialog-btn vertical-adjust">OK</button>
+                            <button onclick="hideDialogButtonClick('dialog');" ripple-color="#202020"
+                                class="button dialog-btn vertical-adjust">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- <div id="about-dialog" class="dialog">
+            
+                    <div id="about-dialog-box" onblur="hideDialogButtonClick('about-dialog');"
+                        class="dialog-content about-dialog-content">
+                        <div class="dialog-header">CodeTeam6</div>
+            
+                        <div class="dialog-body">
+                            <p>about us</p>
+                            <div class="card-group">
+                                <div class="card dialog-card">
+                                    <div class="about-card-img">
+                                        <img src="https://image.ibb.co/crYHen/a_abdallah.jpg" alt="" />
+                                    </div>
+                                    <div class="about-card-title">Ahmad Abdalla</div>
+                                    <div class="about-card-content">Egypt</div>
+                                    <div class="about-card-quote">My dream is to be the best developer in the world, and I'll work
+                                        continuously to achieve that.</div>
+                                </div>
+                                <div class="card dialog-card">
+                                    <div class="about-card-img">
+                                        <img src="https://image.ibb.co/mKg3Kn/a_alrifai.jpg" alt="" />
+                                    </div>
+                                    <div class="about-card-title">Ayman Alrifai</div>
+                                    <div class="about-card-content">Libya</div>
+                                    <div class="about-card-quote">I love coding & design. I learn every day to build awesome stuff.
+                                    </div>
+                                </div>
+                                <div class="card dialog-card">
+                                    <div class="about-card-img">
+                                        <img src="https://image.ibb.co/dYd5X7/m_diab.jpg" alt="" />
+                                    </div>
+                                    <div class="about-card-title">Mohammad Diab</div>
+                                    <div class="about-card-content">Syria</div>
+                                    <div class="about-card-quote">Silent but deadly.</div>
+                                </div>
+                                <div class="card dialog-card">
+                                    <div class="about-card-img">
+                                        <img src="https://image.ibb.co/g01g5S/" alt="" />
+                                    </div>
+                                    <div class="about-card-title">RB</div>
+                                    <div class="about-card-content">Palestine</div>
+                                    <div class="about-card-quote">I think outside the box, I love trying everything new.</div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                        <div class="dialog-footer">
+                            <button onclick="hideDialogButtonClick('about-dialog');" ripple-color="#003c8f"
+                                class="button dialog-btn vertical-adjust">OK</button>
+                        </div>
+                    </div>
+                </div> -->
+            
+                <div class="body" id="sudoku">
+                    <div class="card game">
+                        <table id="puzzle-grid">
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+            
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                                <td>
+                                    <input type="text" maxlength="1" onchange="checkInput(this)" disabled />
+                                </td>
+                            </tr>
+            
+                        </table>
+                    </div>
+            
+                    <div class="card status">
+                        <div id="game-number">game #0</div>
+                        <ul class="game-status">
+                            <li>
+                                <div class="vertical-adjust">
+                                    <span class="material-icons">timer</span>
+                                    <span id="timer-label">Time</span>
+                                </div>
+                                <div id="timer" class="timer">00:00</div>
+                            </li>
+            
+                            <li>
+                                <div class="vertical-adjust">
+                                    <span class="material-icons">network_check</span>
+                                    <span id="game-difficulty-label">Game Difficulty</span>
+                                </div>
+                                <div id="game-difficulty" class="timer"></div>
+                            </li>
+                            <li>
+                                <div class="vertical-adjust">
+                                    <span class="material-icons">grid_on</span>
+                                    <span>Remaining numbers</span>
+                                </div>
+                                <div class="remain-table">
+                                    <div class="remain-column">
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">1</div>
+                                            <div onchange="document.write('Hello');" id="remain-1" class="remain-cell-content">0
+                                            </div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">4</div>
+                                            <div id="remain-4" class="remain-cell-content">0</div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">7</div>
+                                            <div id="remain-7" class="remain-cell-content">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="remain-column">
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">2</div>
+                                            <div id="remain-2" class="remain-cell-content">0</div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">5</div>
+                                            <div id="remain-5" class="remain-cell-content">0</div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">8</div>
+                                            <div id="remain-8" class="remain-cell-content">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="remain-column">
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">3</div>
+                                            <div id="remain-3" class="remain-cell-content">0</div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">6</div>
+                                            <div id="remain-6" class="remain-cell-content">0</div>
+                                        </div>
+                                        <div class="remain-cell">
+                                            <div class="remain-cell-header">9</div>
+                                            <div id="remain-9" class="remain-cell-content">0</div>
+                                        </div>
+                                    </div>
+            
+                                </div>
+                            </li>
+                        </ul>
+            
+                        <!-- <button id="pause-btn" class="option-button" onclick="pauseGameButtonClick()" class="button bar-button more-button">
+                            <span class="material-icons" id="pause-icon">pause</span>
+                            <span id="pause-text">Pause</span>
+                        </button>
+                        <button class="option-button" id="check-btn" onclick="checkButtonClick()">
+                            <span class="material-icons">done_all</span>
+                            <span>Check</span>
+                        </button>
+                        <button class="option-button" onclick="hintButtonClick()">
+                            <span class="material-icons">help</span>
+                            <span>Hint</span>
+                        </button>
+                        <button class="option-button" onclick="restartButtonClick()">
+                            <span class="material-icons">refresh</span>
+                            <span>Restart</span>
+                        </button>
+                        <button class="option-button" onclick="SurrenderButtonClick()">
+                            <span class="material-icons">flag</span>
+                            <span>Surrender</span>
+                        </button> -->
+                            
+                    </div>
+                </div>
+
+                <div class="new-card">
+                    <button class="option-button">
+                        <a class="home-button">
+                            <span class="material-icons">home</span>
+                            <span>Home</span>
+                        </a>
+                    </button>
+                    <button onclick="showDialogClick('dialog');" class="option-button">
+                        <span class="material-icons">add</span>
+                        <span style="left:12px;">Start</span>
+                    </button>
+                    <button id="pause-btn" class="option-button" onclick="pauseGameButtonClick()" class="button bar-button more-button">
+                        <span class="material-icons" id="pause-icon">pause</span>
+                        <span id="pause-text">Pause</span>
+                    </button>
+                    <button class="option-button" id="check-btn" onclick="checkButtonClick()">
+                        <span class="material-icons">done_all</span>
+                        <span>Check</span>
+                    </button>
+                    <button class="option-button" onclick="hintButtonClick()">
+                        <span class="material-icons">help</span>
+                        <span>Hint</span>
+                    </button>
+                    <!-- <button class="option-button" onclick="restartButtonClick()">
+                        <span class="material-icons">refresh</span>
+                        <span>Restart</span>
+                    </button> -->
+                    <button class="option-button" onclick="SurrenderButtonClick()">
+                        <span class="material-icons">flag</span>
+                        <span>Surrender</span>
+                    </button>
+                </div>
+
+            </div>
+            </section>
+        </section>
+    </div>
+    <!-- game end -->
+
+    <!--custom popup -->
+    <div id="custom-popup-placeholder"></div>
+    <!--custom popup -->
+    
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+        fetch('../custom-popup.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('custom-popup-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+    <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+        });
+        
+        document.querySelector(".start-button").addEventListener("click", function () {
+            
+            const metaTag = document.querySelector('meta[name="viewport"]');
+            if (metaTag) {
+                metaTag.remove();  // game view not propar thats why remove
+            }
+        
+            // Full screen not working propar
+            document.getElementById('image-loader').style.display = 'none';
+            document.getElementById('main').style.display = '';
+
+            document.body.style.backgroundImage = 'none'; 
+            document.body.style.background = 'none'; 
+            document.body.style.backgroundSize = '';
+            document.body.style.backgroundColor = 'rgb(235, 235, 240)';
+            
+            gtag('event', 'start_game_click', {
+            'event_category': 'StartGame',
+            'event_label': 'Sudoku Game Started'
+            });
+        });
+        
+        function adjustLayoutForDevice() {
+            const isMobile = window.innerWidth <= 767;
+           
+            const popup = document.querySelector('.popup');
+            const adMobile = document.querySelector('.ad-mobile');
+            const adDesktop = document.querySelector('.ad-desktop');
+
+            if (popup) {
+                if (!isMobile) {
+                    adMobile.style.display = 'none';
+                    adDesktop.style.display = 'block';
+                }
+            }
+        }
+        // Run on load
+        window.addEventListener('load', adjustLayoutForDevice);
+        window.addEventListener('resize', adjustLayoutForDevice);
+    
+    </script>
+</body>
+</html>
