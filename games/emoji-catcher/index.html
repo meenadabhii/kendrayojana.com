@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Emoji-Catcher</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+  <link rel="preload" href="../assets/images/game-name/emoji-catcher.png" as="image" type="image/png">
+    <!--<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>-->
+  <style>
+    .home-icon {
+      color: var(--gray-0);
+      height: 40px;
+      aspect-ratio: 1;
+      padding: 0;
+      border: none;
+      top: 1rem;
+      left: 1rem;
+      place-items: center;
+      opacity: 0.25;
+      cursor: pointer;
+      margin: 5px 10px 10px 20px;
+    }
+
+    .home-icon:hover {
+      opacity: 1;
+    }
+
+    .home-icon svg {
+      width: 65%;
+      fill: var(--gray-0);
+    }
+
+    #start {
+      margin: 5px 5px 0px 5px;
+      background: #ccc;
+      border: none;
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 800;
+      color: #000;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      #image-loader {
+        padding-top: 13%;
+      }
+    }
+
+    /*.game-logo img {
+        margin-bottom: 40px;
+    }*/
+  </style>
+</head>
+
+<body>
+  <div id="image-loader">
+    <!-- sticky ads start -->
+    <div id="FloatAdx-left">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div id="FloatAdx-right">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <!-- sticky ads end -->
+
+    <div id="image-container">
+      <div class="top-adx" style="height: 100px !important;">
+        <!-- Start game screen -->
+        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:100px"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="8787023214"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="game-logo">
+        <img src="../assets/images/game-name/emoji-catcher.png">
+      </div>
+    </div>
+    <div class="loader-custome">
+      <span class="loader"></span>
+    </div>
+    <div id="button-container">
+      <button class="start-button start-g" onClick="startGame()">START GAME</button>
+      <button class="more-button more-g">MORE GAMES</button>
+    </div>
+
+    <div class='sticky-btm' id='sticky-btm'>
+      <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg
+          viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'>
+          <path
+            d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z' />
+        </svg></div>
+      <div class='sticky-btm-content'>
+        <ins class="adsbygoogle" style="display:inline-block;height:70px;width:100%;line-height:70px;"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="4737125238"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" style="display: none;">
+    <!-- <a href="https://baseapk.me"> -->
+    <button class="home-icon" type="button" title="Home">
+      <svg class="" viewBox="0 0 24 24">
+        <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path>
+      </svg>
+    </button>
+    <!-- </a> -->
+    <div class="scores-container">
+      <div class="total-score">
+        <h2>Your Score:</h2>
+        <h2 id="score">0</h2>
+      </div>
+      <div class="time">
+        <h2>Time left:</h2>
+        <h2 id="time-left">60</h2>
+      </div>
+      <button id="start" onClick="startGame()">Start</button>
+    </div>
+    <div class="grid-container">
+      <div class="grid">
+        <div class="square" id="1"></div>
+        <div class="square" id="2"></div>
+        <div class="square" id="3"></div>
+        <div class="square" id="4"></div>
+        <div class="square" id="5"></div>
+        <div class="square" id="6"></div>
+        <div class="square" id="7"></div>
+        <div class="square" id="8"></div>
+        <div class="square" id="9"></div>
+        <div class="square" id="10"></div>
+      </div>
+    </div>
+  </div>
+
+  <!--custom popup -->
+    <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+        fetch('../custom-popup.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('custom-popup-placeholder').innerHTML = data;
+          })
+          .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+   
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+      let gameElement = document.documentElement; // Fullscreen the whole page
+
+      if (gameElement.requestFullscreen) {
+        gameElement.requestFullscreen();
+      } else if (gameElement.mozRequestFullScreen) { // Firefox
+        gameElement.mozRequestFullScreen();
+      } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+        gameElement.webkitRequestFullscreen();
+      } else if (gameElement.msRequestFullscreen) { // IE/Edge
+        gameElement.msRequestFullscreen();
+      }
+      document.getElementById('image-loader').style.display = 'none';
+      document.getElementById('main').style.display = '';
+
+      document.body.style.background = 'rgb(10, 10, 10)';
+      document.body.style.color = '#fff';
+      document.body.style.fontFamily = "sans-serif";
+
+      gtag('event', 'start_game_click', {
+        'event_category': 'StartGame',
+        'event_label': 'Emoji-Catcher Started'
+      });
+    });
+
+  </script>
+</body>
+
+</html>

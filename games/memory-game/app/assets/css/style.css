@@ -1,0 +1,733 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Sedgwick+Ave+Display&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Responsive background image credit: https://www.webfx.com/blog/web-design/responsive-background-image/ */
+  /* Set a background color that will be displayed while the background image is loading and Location of the image */
+  background: #1f1740 url("../images/photo-of-multicolored-illustration-min.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* This is what makes the background image rescale based on the container's size */
+  background-size: cover;
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  /* Background image is fixed in the viewport so that it doesn't move when the content's height is greater than the image's height */
+  background-attachment: fixed;
+}
+
+.inline {
+  display: inline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: -3rem;
+}
+
+.init-wrapper {
+  height: 100vh;
+  /* This part is important for centering the content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* End center */
+}
+
+/* .init-wrapper a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: #585858;
+  font-family: 'Roboto', sans-serif;
+} */
+
+/*------------------------------------------------------ start modal -------------------*/
+.modal-header {
+  border-bottom: 0;
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+.modal-backdrop.show {
+  opacity: .3;
+}
+
+#start-modal.modal.fade.show {
+  padding: 0;
+}
+
+#btn-start-modal,
+#btn-results-modal,
+#btn-start-game,
+#btn-level-up,
+#btn-play-again {
+  background-color: #daa520;
+  border-color: #daa520;
+  color: #1f1740;
+}
+
+#btn-start-game,
+#btn-level-up,
+#btn-play-again {
+  font-weight: 700;
+}
+
+#btn-start-modal,
+#btn-results-modal {
+  font-family: "Sedgwick Ave Display", cursive;
+  letter-spacing: 4px;
+  font-size: 32px;
+}
+
+#btn-start-modal:hover,
+#btn-results-modal:hover,
+#btn-start-game:hover,
+#btn-level-up:hover,
+#btn-play-again:hover {
+  box-shadow: 0 0 10px #fafafa;
+}
+
+.modal-content {
+  text-align: center;
+  margin: 0 auto;
+  border: solid 2px #daa520;
+  color: #daa520;
+  border-radius: 4px;
+  position: relative;
+  width: 500px;
+  max-width: 82%;
+  background: #1f1740;
+  padding: 1em;
+}
+
+.modal-content h3 {
+  font-family: "Sedgwick Ave Display", cursive;
+  letter-spacing: 4px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #5a62689e;
+  text-decoration: none;
+}
+
+.close:hover {
+  color: #6c757d42;
+}
+
+.btn-primary {
+  background-color: #2222a3a6;
+  border-color: #2222a3a6;
+}
+
+.btn-primary:hover {
+  color: #fafafa;
+  background-color: #2222a300;
+  border-color: #2222a300;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  color: #fafafa;
+  background-color: #2222a3a6;
+  border-color: #2222a3a6;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem transparent;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+  color: #fafafa;
+  background-color: #2222a3a6;
+  border-color: #2222a3a6;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem transparent;
+}
+
+#btn-start-game.focus,
+#btn-start-modal.focus,
+#btn-start-modal:focus {
+  box-shadow: 0 0 0 0.2rem #d39e0091;
+}
+
+input:required:invalid, input:focus:invalid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC);
+  background-position: right;
+  background-repeat: no-repeat;
+  -moz-box-shadow: none;
+  border: 2px solid #e04e5c;
+}
+
+input:required:valid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+  border: 2px solid #28a745;
+}
+
+/*------------------------------------------------------ header -------------------*/
+header {
+  text-align: center;
+  color: #fafafa;
+}
+
+.header-details h1 {
+  margin: 4rem auto 4rem auto;
+  font-family: "Sedgwick Ave Display", cursive;
+  letter-spacing: 4px;
+  font-size: 52px;
+}
+
+/*------------------------------------------------------ container-information -------------------*/
+.container-information {
+  text-align: center;
+}
+
+.badge {
+  padding-top: 0.55em;
+  padding-right: 0.8em;
+  padding-bottom: 0.55em;
+  padding-left: 0.8em;
+  margin-right: 30px;
+  background-color: #990c19a1;
+}
+
+.badge.moves,
+.badge.levelTimer {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+#btn-restart {
+  margin-left: 90px;
+}
+
+#btn-exit {
+  margin-left: 30px;
+}
+
+#btn-restart:hover,
+#btn-exit:hover {
+  box-shadow: 0 0 15px #fafafa;
+}
+
+/*------------------------------------------------------ container-cards -------------------*/
+.container-cards {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#card-details {
+  width: 900px;
+  background: transparent;
+  padding: 32px;
+  border-color: transparent;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin: 0 auto;
+}
+
+.card {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  background: #1f1740 url("../images/city-art-los-angeles-street-art-min.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border-radius: 8px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.card:hover,
+.card.visible {
+  border: 3px solid #2222a3a6;
+  box-shadow: 0 0 10px #fafafa;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card.visible {
+  transform: rotateY(180deg);
+  perspective: 1000px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/*------------------------------------------------------ footer -------------------*/
+footer {
+  background-color: rgb(0 0 0 / 0.55);
+  color: #fafafa;
+  margin: 0 auto;
+  width: 100%;
+  bottom: 0;
+}
+
+footer,
+.push {
+  height: 3rem;
+}
+
+footer p {
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+footer a {
+  color: #fafafa;
+}
+
+footer a:hover {
+  color: #daa520;
+}
+
+/*------------------------------------------------------ media queries -------------------*/
+/* xxs - Double extra small devices (portrait phones, less than 349px) */
+@media (max-width: 349.99px) {
+  #card-details {
+    width: 290px;
+    padding: 26px;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+  }
+
+  .header-details h1 {
+    font-size: 24px;
+  }
+
+  footer p {
+    font-size: 11px;
+  }
+
+  .badge {
+    margin-right: 8px;
+    font-size: 10px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  #btn-restart {
+    margin-left: 8px;
+  }
+
+  #btn-exit {
+    margin-left: 8px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 14px;
+  }
+
+  .modal-body {
+    font-size: 12px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 10px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 12px;
+  }
+
+  .modal-content h3 {
+    font-size: 20px;
+  }
+}
+
+/* xs - Extra small devices (portrait phones, less than 576px) */
+@media (min-width: 350px) and (max-width: 575.99px) {
+  #card-details {
+    width: 350px;
+    padding: 26px;
+  }
+
+  .card {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header-details h1 {
+    font-size: 28px;
+  }
+
+  footer p {
+    font-size: 10px;
+  }
+
+  .badge {
+    margin-right: 8px;
+    font-size: 10px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  #btn-restart {
+    margin-left: 10px;
+  }
+
+  #btn-exit {
+    margin-left: 10px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 18px;
+  }
+
+  .modal-body {
+    font-size: 12px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 10px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 12px;
+  }
+
+  .modal-content h3 {
+    font-size: 20px;
+  }
+}
+
+/* sm - Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.99px) {
+  #card-details {
+    width: 450px;
+  }
+
+  .card {
+    width: 140px;
+    height: 140px;
+  }
+
+  .header-details h1 {
+    font-size: 36px;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
+
+  .badge {
+    margin-right: 15px;
+    font-size: 12px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+
+  #btn-restart {
+    margin-left: 20px;
+  }
+
+  #btn-exit {
+    margin-left: 15px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 22px;
+  }
+
+  .modal-body {
+    font-size: 14px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 12px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 14px;
+  }
+
+  .modal-content h3 {
+    font-size: 22px;
+  }
+}
+
+/* md - Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.99px) {
+  #card-details {
+    width: 700px;
+  }
+
+  .columns4 {
+    width: 760px !important;
+  }
+
+  .card {
+    width: 150px;
+    height: 150px;
+    margin: 8px;
+  }
+
+  .header-details h1 {
+    font-size: 42px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  .badge {
+    margin-right: 32px;
+    font-size: 16px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 16px;
+  }
+
+  #btn-restart {
+    margin-left: 60px;
+  }
+
+  #btn-exit {
+    margin-left: 20px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 28px;
+  }
+
+  .modal-body {
+    font-size: 16px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 14px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 16px;
+  }
+
+  .modal-content h3 {
+    font-size: 28px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+  }
+}
+
+/* lg - Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.99px) {
+  #card-details {
+    width: 850px;
+  }
+
+  .columns4 {
+    width: 900px !important;
+  }
+
+  .card {
+    width: 180px;
+    height: 180px;
+  }
+
+  .header-details h1 {
+    font-size: 48px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  .badge {
+    margin-right: 36px;
+    font-size: 18px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 18px;
+  }
+
+  #btn-restart {
+    margin-left: 80px;
+  }
+
+  #btn-exit {
+    margin-left: 30px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 32px;
+  }
+
+  .modal-body {
+    font-size: 18px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 16px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 18px;
+  }
+
+  .modal-content h3 {
+    font-size: 30px;
+  }
+
+  .modal-content {
+    max-width: 100%;
+  }
+}
+
+/* xl - Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .columns4 {
+    width: 1100px !important;
+  }
+
+  .card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .header-details h1 {
+    font-size: 48px;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+
+  .badge {
+    margin-right: 40px;
+    font-size: 20px;
+  }
+
+  #btn-restart,
+  #btn-exit {
+    font-size: 20px;
+  }
+
+  #btn-restart {
+    margin-left: 100px;
+  }
+
+  #btn-exit {
+    margin-left: 40px;
+  }
+
+  #btn-results-modal,
+  #btn-start-modal {
+    font-size: 36px;
+  }
+
+  .modal-body {
+    font-size: 18px;
+  }
+
+  form input#player-name.player-name {
+    font-size: 16px;
+  }
+
+  .btn-secondary,
+  #btn-level-up,
+  #btn-play-again,
+  #btn-start-game {
+    font-size: 18px;
+  }
+
+  .modal-content h3 {
+    font-size: 32px;
+  }
+
+  .modal-content {
+    max-width: 100%;
+  }
+}

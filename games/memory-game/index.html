@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>Match the memory</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" href="app/assets/css/style.css" type="text/css" />
+  <link rel="shortcut icon" type="image/png" href="app/assets/images/favicon.ico" />
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+    <link rel="preload" href="../assets/images/game-name/memory-card.png" as="image" type="image/png">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>
+  <style>
+    .home-button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      background-color: #daa520;
+      border-color: #daa520;
+      color: #1f1740;
+      padding: 8px 20px;
+      border-radius: 5px;
+      font-family: "Sedgwick Ave Display", cursive;
+      letter-spacing: 4px;
+      font-size: 32px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .home-button:hover {
+      color: #1f1740;
+      box-shadow: 0 0 10px #fafafa;
+      text-decoration: none;
+    }
+
+    @media (min-width: 350px) and (max-width: 575.99px) {
+      .home-button {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 576px) and (max-width: 767.99px) {
+      .home-button {
+        font-size: 22px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.99px) {
+      .home-button {
+        font-size: 28px;
+      }
+    }
+
+    @media (min-width: 992px) and (max-width: 1199.99px) {
+      .home-button {
+        font-size: 32px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .home-button {
+        font-size: 36px;
+      }
+    }
+
+    .uppercase {
+      margin-right: 10px;
+    }
+
+    .logo img {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="image-loader">
+    <!-- sticky ads start -->
+    <div id="FloatAdx-left">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div id="FloatAdx-right">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <!-- sticky ads end -->
+
+    <div id="image-container">
+      <div class="top-adx" style="height: 100px !important;">
+        <!-- Start game screen -->
+        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:100px"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="8787023214"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="game-logo">
+        <img src="../assets/images/game-name/memory-card.png">
+      </div>
+    </div>
+
+    <div class="loader-custome">
+      <span class="loader"></span>
+    </div>
+    <div id="button-container">
+      <button class="start-button start-g">START GAME</button>
+      <button class="more-button more-g">MORE GAMES</button>
+    </div>
+
+    <div class='sticky-btm' id='sticky-btm'>
+      <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg
+          viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'>
+          <path
+            d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z' />
+        </svg></div>
+      <div class='sticky-btm-content'>
+        <ins class="adsbygoogle" style="display:inline-block;height:70px;width:100%;line-height:70px;"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="4737125238"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- page-wrapper -->
+  <div class="page-wrapper" id="main_div" style="display: none;">
+    <!-- init-wrapper -->
+    <div class="init-wrapper">
+      <button type="button" class="btn">
+        <a class="home-button">BACK TO HOME</a>
+      </button>
+      <button type="button" id="btn-start-modal" class="btn uppercase" data-toggle="modal" data-target="#start-modal">
+        Match The Memory
+      </button>
+      <button type="button" id="btn-results-modal" class="btn uppercase" data-toggle="modal"
+        data-target="#results-modal">
+        My results
+      </button>
+    </div>
+
+    <!-- header -->
+    <header>
+      <div class="container container-fluid content">
+        <div class="row">
+          <div class="col-12 header-details">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- container information -->
+    <div class="container container-information">
+      <div class="row">
+        <div class="col-12 information-details">
+          <h4 class="inline">
+          </h4>
+          <button type="button" class="btn btn btn-primary" id="btn-restart"><i class="fas fa-redo-alt"></i></button>
+          <button type="button" class="btn btn btn-primary" id="btn-exit"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- container-cards -->
+    <div class="container container-cards">
+      <div class="row">
+        <div id="card-details" class="col-12"></div>
+      </div>
+    </div>
+
+    <!-- start-modal -->
+    <div id="start-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="start-modal-label"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h3 class="modal-title uppercase w-100" id="start-menu-title">
+              Can you make it ?
+              <button id="btn-close-cross-start-modal" type='button' class='close' data-dismiss='modal'
+                aria-label='close'>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+            </h3>
+          </div>
+          <div class="modal-body">
+            <form id="player-name-form">
+              <label for="player-name">Enter your username:</label><br />
+              <input type="text" class="player-name" id="player-name" name="player-name" placeholder="Username"
+                required />
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="btn-close-start-modal"
+              data-dismiss="modal">Close</button>
+            <button type="button" class="btn" id="btn-start-game">Let's play!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- results-modal -->
+    <div id="results-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="results-modal-label"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-header">
+            <h3 class="modal-title uppercase w-100" id="result-menu-title">
+              Congrats!
+              <button id="btn-close-cross-results-modal" type='button' class='close' data-dismiss='modal'
+                aria-label='close'>
+                <span aria-hidden='true'>&times;</span>
+              </button>
+            </h3>
+          </div>
+          <div class="modal-body">
+            <p class="results-text"></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="btn-close-results-modal"
+              data-dismiss="modal">Close</button>
+            <button type="button" class="btn" id="btn-level-up">Level up</button>
+            <button type="button" class="btn" id="btn-play-again">Play again!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="push"></div>
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+  
+  <!-- scripts -->
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+      fetch('../custom-popup.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('custom-popup-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+  </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script src="https://kit.fontawesome.com/e576f39845.js" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.slim.min.js"
+    integrity="sha512-L/VGU4zvy5QAszSof84v07PyoLWojkWLGLlUMiFcIvgAP2jhPPdFmoT4MTt+rGMT9aAM6HQzIpL6sKsc7LdQtg=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"
+    integrity="sha512-cEgdeh0IWe1pUYypx4mYPjDxGB/tyIORwjxzKrnoxcif2ZxI7fw81pZWV0lGnPWLrfIHGA7qc964MnRjyCYmEQ=="
+    crossorigin="anonymous" defer> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.6.0/popper.min.js"
+    integrity="sha512-FiHtRuOSbiye2rMcWy4ZPe+8H4j2fZ+/jP/cN0wWlApw7Bd5yfvRdvAeuZWKFHlzDccXGU91cZEBc8L9C1A6xg=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous" defer></script>
+  <script src="app/assets/js/game.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+
+    document.querySelector(".start-button").addEventListener("click", function () {
+      let gameElement = document.documentElement; // Fullscreen the whole page
+
+      if (gameElement.requestFullscreen) {
+        gameElement.requestFullscreen();
+      } else if (gameElement.mozRequestFullScreen) { // Firefox
+        gameElement.mozRequestFullScreen();
+      } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+        gameElement.webkitRequestFullscreen();
+      } else if (gameElement.msRequestFullscreen) { // IE/Edge
+        gameElement.msRequestFullscreen();
+      }
+
+      document.getElementById('image-loader').style.display = 'none';
+      document.getElementById('main_div').style.display = 'block';
+
+      document.body.style.backgroundImage = 'none';
+      document.body.style.background = '#1f1740 url("app/assets/images/photo-of-multicolored-illustration-min.jpg")';
+
+      gtag('event', 'start_game_click', {
+        'event_category': 'StartGame',
+        'event_label': 'Match the memory Started'
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Math Game</title>
+    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+    
+	<!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+	 <link rel="preload" href="../assets/images/game-name/math.png" as="image" type="image/png">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>
+    
+	<style>
+	    @media (max-width: 768px) {
+         .top-adx {
+            height: 100px !important;
+            min-height: 100px !important;
+            max-height: 100px !important;
+            overflow: hidden;
+            }
+        }
+      .home-button {
+        width: 520px;
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 18px;
+        margin: 10px auto; 
+        color: white;
+        background: #2ca5d4;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 4px 4px #2980b9;
+      }
+      .home-button:hover {
+        color: white;
+        text-decoration: none;
+        box-shadow: 6px 6px #1c6691;
+      }
+      @media (max-width: 480px) {
+          .home-button {
+              width: 335px;
+          }
+      }
+      @media (min-width: 1024px) {
+          .game-logo img {
+              width: 300px;
+          } 
+      }
+      .logo img {
+          margin-bottom: 30px;
+      }
+    </style>
+</head>
+<body>
+    <div id="image-loader">
+      <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="game-logo">
+              <img src="../assets/images/game-name/math.png">
+            </div>
+        </div>
+    <div class="loader-custome">
+      <span class="loader"></span>
+      </div>   
+       <div id="button-container">
+        <button class="start-button start-g">START GAME</button>
+        <button class="more-button more-g">MORE GAMES</button>
+      </div>
+      
+        <div class='sticky-btm' id='sticky-btm'>
+            <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+            <div class='sticky-btm-content'>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;height:70px;width:100%;line-height:70px;"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="4737125238"
+                 ></ins><script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+        </div>
+        
+    </div>
+
+    <a class="home-button">BACK TO HOME</a>
+    <div id="game" class="wrapper" style="display: none;"></div>
+
+    <!--custom popup -->
+    <div id="custom-popup-placeholder"></div>
+    <!--custom popup -->
+    
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+        fetch('../custom-popup.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('custom-popup-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+    <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+        });
+        $('#bar').hide();
+        document.querySelector(".start-button").addEventListener("click", function () {
+            let gameElement = document.documentElement; // Fullscreen the whole page
+
+            if (gameElement.requestFullscreen) {
+                gameElement.requestFullscreen();
+            } else if (gameElement.mozRequestFullScreen) { // Firefox
+                gameElement.mozRequestFullScreen();
+            } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+                gameElement.webkitRequestFullscreen();
+            } else if (gameElement.msRequestFullscreen) { // IE/Edge
+                gameElement.msRequestFullscreen();
+            }
+            document.getElementById('image-loader').style.display = 'none';
+            document.getElementById('game').style.display = '';
+
+            document.body.style.backgroundImage = 'none'; 
+            document.body.style.backgroundSize = '';
+            document.body.style.backgroundColor = '#e5cc94';
+            $('#bar').show();
+        
+            gtag('event', 'start_game_click', {
+              'event_category': 'StartGame',
+              'event_label': 'Math Game Started'
+            });
+        });
+        
+        // HOME BUTTON CLICK INTRACTION --------------------------------------------------------------
+        // document.querySelector(".home-button").addEventListener("click", function () {
+            
+        //     gtag('event', 'home_button_click', {
+        //         'event_category': 'Navigation',
+        //         'event_label': 'Back to Home'
+        //     });
+        //     // Optional: small delay to ensure GA event is sent
+        //     setTimeout(() => {
+        //         window.location.href = "https://baseapk.me";
+        //     }, 200); // 200ms delay
+        // });
+    
+        // document.querySelector(".more-button").addEventListener("click", function () {
+        //     // MORE BUTTON CLICK INTRACTION
+        //     gtag('event', 'more_games_click', {
+        //         'event_category': 'Navigation',
+        //         'event_label': 'More Games Button'
+        //     });
+        //     // Redirect "More Games" button
+        //     window.location.href = "https://baseapk.me";
+        // });
+    </script>
+</body>
+</html>

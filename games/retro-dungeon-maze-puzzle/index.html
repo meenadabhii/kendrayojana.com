@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Retro Dungeon Maze Puzzle</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  <link rel="preload" href="../assets/images/game-name/retro-dungeon.png" as="image" type="image/png">
+  <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+  <style>
+    .logo img {
+        margin-bottom: 30px;
+    }
+    .game-logo img {
+        margin-bottom: 60px;
+    }
+    .home-icon {
+        color: var(--gray-0);
+        height: 48px;
+        aspect-ratio: 1;
+        padding: 0;
+        border: none;
+        position: fixed; 
+        top: 1rem;
+        left: 1rem;  
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        opacity: 0.25;
+        cursor: pointer;
+    }
+    .home-icon:hover {
+        opacity: 1;
+    }
+    .home-icon svg {
+        width: 65%;
+        fill: var(--gray-0); 
+    }
+    @media (max-width: 768px) {
+        #image-loader {
+            padding-top: 15%;
+        }
+    }
+    .game-logo img {
+        margin-bottom: 50px;
+    }
+    .top-adx {
+        margin-bottom: 30px;
+    }
+    @media (min-width: 1024px) {
+        .top-adx {
+            left: 24px;
+        }
+        #image-loader {
+            padding-top: 5%;
+        }
+        .game-logo img {
+            margin-bottom: 60px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div id="image-loader">
+    <!-- sticky ads start -->
+    <div id="FloatAdx-left">
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422"
+        data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div id="FloatAdx-right">
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422"
+        data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <!-- sticky ads end -->
+
+    <div id="image-container">
+        <div class="top-adx" style="height: 100px !important;">
+            <!-- Start game screen -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:100px"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="8787023214"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+      <div class="game-logo">
+        <img src="../assets/images/game-name/retro-dungeon.png">
+      </div>
+    </div>
+    <div class="loader-custome">
+      <span class="loader"></span>
+    </div>
+    <div id="button-container">
+      <button class="start-button start-g">START GAME</button>
+      <button class="more-button more-g">MORE GAMES</button>
+    </div>
+    
+    <div class='sticky-btm' id='sticky-btm'>
+        <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+        <div class='sticky-btm-content'>
+        <ins class="adsbygoogle"
+             style="display:inline-block;height:70px;width:100%;line-height:70px;"
+             data-ad-client="ca-pub-8263720079379422"
+             data-ad-slot="4737125238"
+             ></ins><script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        </div>
+    </div>
+    
+  </div>
+
+  <div id="main" style="display: none;">
+    <!--<a href="https://baseapk.me">-->
+      <button class="home-icon" type="button" title="Home">
+        <svg class="" viewBox="0 0 24 24">
+            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path>
+          </svg>
+        </button>
+    <!--</a>-->
+    <form class="game-form">
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_0" />
+      <input class="map-check monster-check" type="checkbox" id="monster_3_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_0" />
+      <input class="map-check monster-check" type="checkbox" id="monster_9_0" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_1" />
+      <input class="map-check monster-check" type="checkbox" id="monster_6_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_1" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_2" />
+      <input class="map-check" type="checkbox" id="key_9_2" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_3" />
+      <input class="map-check monster-check" type="checkbox" id="monster_8_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_3" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_4" />
+      <input class="map-check monster-check" type="checkbox" id="monster_4_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_4" />
+      <input class="map-check" type="checkbox" id="lock_6_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_4" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_5" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_6" />
+      <input class="map-check" type="checkbox" id="key_0_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_6" checked="checked" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_6" />
+      <input class="map-check" type="checkbox" id="lock_4_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_6" />
+      <input class="map-check" type="checkbox" id="lock_7_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_6" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_7" />
+      <input class="map-check monster-check" type="checkbox" id="monster_4_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_7" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_8" />
+      <input class="map-check" type="checkbox" id="lock_3_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_8" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_0_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_1_9" />
+      <input class="map-check" type="checkbox" id="key_1_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_2_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_3_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_4_9" />
+      <input class="map-check monster-check" type="checkbox" id="monster_4_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_5_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_6_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_7_9" />
+      <input class="map-check" type="checkbox" id="key_7_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_8_9" />
+      <input class="map-check" type="radio" name="map-radio" id="grid_9_9" />
+      <input class="map-check dialog-check" type="radio" name="pre_dialog" id="pre_dialog_0" checked="checked" />
+      <input class="map-check dialog-check" type="radio" name="pre_dialog" id="pre_dialog_1" />
+      <input class="map-check dialog-check" type="radio" name="pre_dialog" id="pre_dialog_2" />
+      <input class="map-check dialog-check" type="radio" name="pre_dialog" id="pre_dialog_3" />
+      <input class="map-check dialog-check" type="radio" name="post_dialog" id="post_dialog_0" checked="checked" />
+      <input class="map-check dialog-check" type="radio" name="post_dialog" id="post_dialog_1" />
+      <input class="map-check dialog-check" type="checkbox" id="show_post_dialog" />
+      <div class="view">
+        <div class="map">
+          <label class="grid wall" for="grid_0_0">
+          </label>
+          <label class="grid wall" for="grid_1_0">
+          </label>
+          <label class="grid wall" for="grid_2_0">
+          </label>
+          <label class="grid" for="grid_3_0">
+            <label class="object monster" for="monster_3_0"></label>
+          </label>
+          <label class="grid wall" for="grid_4_0">
+          </label>
+          <label class="grid wall" for="grid_5_0">
+          </label>
+          <label class="grid" for="grid_6_0">
+          </label>
+          <label class="grid" for="grid_7_0">
+          </label>
+          <label class="grid" for="grid_8_0">
+          </label>
+          <label class="grid" for="grid_9_0">
+            <label class="object monster" for="monster_9_0"></label>
+          </label>
+          <label class="grid" for="grid_0_1">
+          </label>
+          <label class="grid" for="grid_1_1">
+          </label>
+          <label class="grid" for="grid_2_1">
+          </label>
+          <label class="grid" for="grid_3_1">
+          </label>
+          <label class="grid wall" for="grid_4_1">
+          </label>
+          <label class="grid wall" for="grid_5_1">
+          </label>
+          <label class="grid" for="grid_6_1">
+            <label class="object monster" for="monster_6_1"></label>
+          </label>
+          <label class="grid" for="grid_7_1">
+          </label>
+          <label class="grid barrel" for="grid_8_1">
+          </label>
+          <label class="grid barrel" for="grid_9_1">
+          </label>
+          <label class="grid wall" for="grid_0_2">
+          </label>
+          <label class="grid" for="grid_1_2">
+          </label>
+          <label class="grid barrel" for="grid_2_2">
+          </label>
+          <label class="grid barrel" for="grid_3_2">
+          </label>
+          <label class="grid wall" for="grid_4_2">
+          </label>
+          <label class="grid wall" for="grid_5_2">
+          </label>
+          <label class="grid" for="grid_6_2">
+          </label>
+          <label class="grid" for="grid_7_2">
+          </label>
+          <label class="grid" for="grid_8_2">
+          </label>
+          <label class="grid" for="grid_9_2">
+            <label class="object key" for="key_9_2"></label>
+          </label>
+          <label class="grid wall" for="grid_0_3">
+          </label>
+          <label class="grid" for="grid_1_3">
+          </label>
+          <label class="grid" for="grid_2_3">
+          </label>
+          <label class="grid" for="grid_3_3">
+          </label>
+          <label class="grid wall" for="grid_4_3">
+          </label>
+          <label class="grid wall" for="grid_5_3">
+          </label>
+          <label class="grid wall" for="grid_6_3">
+          </label>
+          <label class="grid" for="grid_7_3">
+          </label>
+          <label class="grid" for="grid_8_3">
+            <label class="object monster" for="monster_8_3"></label>
+          </label>
+          <label class="grid wall" for="grid_9_3">
+          </label>
+          <label class="grid" for="grid_0_4">
+          </label>
+          <label class="grid tree" for="grid_1_4">
+          </label>
+          <label class="grid tree" for="grid_2_4">
+          </label>
+          <label class="grid" for="grid_3_4">
+          </label>
+          <label class="grid" for="grid_4_4">
+            <label class="object monster" for="monster_4_4"></label>
+          </label>
+          <label class="grid" for="grid_5_4">
+          </label>
+          <label class="grid" for="grid_6_4">
+            <label class="object lock" for="lock_6_4"></label>
+            <label class="object lock" data-key="7_9"></label>
+          </label>
+          <label class="grid" for="grid_7_4">
+          </label>
+          <label class="grid tree" for="grid_8_4">
+          </label>
+          <label class="grid wall" for="grid_9_4">
+          </label>
+          <label class="grid" for="grid_0_5">
+          </label>
+          <label class="grid tree" for="grid_1_5">
+          </label>
+          <label class="grid tree" for="grid_2_5">
+          </label>
+          <label class="grid" for="grid_3_5">
+          </label>
+          <label class="grid wall" for="grid_4_5">
+          </label>
+          <label class="grid" for="grid_5_5">
+          </label>
+          <label class="grid barrel" for="grid_6_5">
+          </label>
+          <label class="grid barrel" for="grid_7_5">
+          </label>
+          <label class="grid wall" for="grid_8_5">
+          </label>
+          <label class="grid wall" for="grid_9_5">
+          </label>
+          <label class="grid" for="grid_0_6">
+            <label class="object key" for="key_0_6"></label>
+          </label>
+          <label class="grid" for="grid_1_6">
+          </label>
+          <label class="grid" for="grid_2_6">
+          </label>
+          <label class="grid" for="grid_3_6">
+          </label>
+          <label class="grid" for="grid_4_6">
+            <label class="object lock" for="lock_4_6"></label>
+            <label class="object lock" data-key="0_6"></label>
+          </label>
+          <label class="grid" for="grid_5_6">
+          </label>
+          <label class="grid" for="grid_6_6">
+          </label>
+          <label class="grid" for="grid_7_6">
+            <label class="object lock" for="lock_7_6"></label>
+            <label class="object lock" data-key="1_9"></label>
+          </label>
+          <label class="grid finish" for="show_post_dialog">
+          </label>
+          <label class="grid wall" for="grid_9_6">
+          </label>
+          <label class="grid" for="grid_0_7">
+          </label>
+          <label class="grid barrel" for="grid_1_7">
+          </label>
+          <label class="grid tree" for="grid_2_7">
+          </label>
+          <label class="grid barrel" for="grid_3_7">
+          </label>
+          <label class="grid" for="grid_4_7">
+            <label class="object monster" for="monster_4_7"></label>
+          </label>
+          <label class="grid" for="grid_5_7">
+          </label>
+          <label class="grid barrel" for="grid_6_7">
+          </label>
+          <label class="grid wall" for="grid_7_7">
+          </label>
+          <label class="grid wall" for="grid_8_7">
+          </label>
+          <label class="grid wall" for="grid_9_7">
+          </label>
+          <label class="grid" for="grid_0_8">
+          </label>
+          <label class="grid tree" for="grid_1_8">
+          </label>
+          <label class="grid wall" for="grid_2_8">
+          </label>
+          <label class="grid" for="grid_3_8">
+            <label class="object lock" for="lock_3_8"></label>
+            <label class="object lock" data-key="9_2"></label>
+          </label>
+          <label class="grid" for="grid_4_8">
+          </label>
+          <label class="grid" for="grid_5_8">
+          </label>
+          <label class="grid barrel" for="grid_6_8">
+          </label>
+          <label class="grid wall" for="grid_7_8">
+          </label>
+          <label class="grid tree" for="grid_8_8">
+          </label>
+          <label class="grid wall" for="grid_9_8">
+          </label>
+          <label class="grid wall" for="grid_0_9">
+          </label>
+          <label class="grid" for="grid_1_9">
+            <label class="object key" for="key_1_9"></label>
+          </label>
+          <label class="grid" for="grid_2_9">
+          </label>
+          <label class="grid" for="grid_3_9">
+          </label>
+          <label class="grid" for="grid_4_9">
+            <label class="object monster" for="monster_4_9"></label>
+          </label>
+          <label class="grid" for="grid_5_9">
+          </label>
+          <label class="grid" for="grid_6_9">
+          </label>
+          <label class="grid" for="grid_7_9">
+            <label class="object key" for="key_7_9"></label>
+          </label>
+          <label class="grid tree" for="grid_8_9">
+          </label>
+          <label class="grid wall" for="grid_9_9">
+          </label>
+        </div>
+        <div class="character"></div>
+        <div class="fog"></div>
+        <label class="pre-dialog" id="pre_dialog_trigger_2" for="pre_dialog_3">Click on some of the objects to interact,
+          but avoid the monsters.</label>
+        <label class="pre-dialog" id="pre_dialog_trigger_1" for="pre_dialog_2">Click on the tiles to move your character
+          to that point.</label>
+        <label class="pre-dialog" id="pre_dialog_trigger_0" for="pre_dialog_1">You were lost in an unknown area! Find
+          your way out.</label>
+        <label class="post-dialog" id="post_dialog_trigger_1" for="post_dialog_2">
+          <button class="reset" type="reset">Play again</button>
+        </label>
+        <label class="post-dialog" id="post_dialog_trigger_0" for="post_dialog_1">You managed to escape the dungeon!
+        </label>
+        <div class="lose-dialog"><span>You lose! You touched the monster!</span>
+          <button class="reset" type="reset">Play again</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+  
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+      fetch('../custom-popup.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('custom-popup-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script src="script.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+        let gameElement = document.documentElement; // Fullscreen the whole page
+
+        if (gameElement.requestFullscreen) {
+            gameElement.requestFullscreen();
+        } else if (gameElement.mozRequestFullScreen) { // Firefox
+            gameElement.mozRequestFullScreen();
+        } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+            gameElement.webkitRequestFullscreen();
+        } else if (gameElement.msRequestFullscreen) { // IE/Edge
+            gameElement.msRequestFullscreen();
+        }
+        document.getElementById('image-loader').style.display = 'none';
+        document.getElementById('main').style.display = '';
+
+        document.body.style.backgroundImage = 'none'; 
+        document.body.style.backgroundSize = '';
+        document.body.style.background = 'black';
+        
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Retro Dungeon Maze Puzzle Started'
+        });
+    });
+  </script>
+</body>
+</html>

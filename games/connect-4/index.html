@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <title>Connect 4</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  
+    <link rel="preload" href="../assets/images/game-name/connect-4.png" as="image" type="image/png">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>
+
+  <style>
+    /* start screen home button */
+    .home-button {
+      color: white;
+    }
+    .home-button:hover {
+      text-decoration: none;
+      color: white;
+    }
+    :root {
+      --bg: #2c3e50;
+      --gray-0: white;
+    }
+    /* Home icon playing screen */
+    .home-icon {
+      /* background: var(--bg); */
+      /* background: var(--blue); */
+      background: black;
+      color: var(--gray-0);
+      height: 48px;
+      aspect-ratio: 1;
+      padding: 0;
+      border: none;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      /* Left side of the screen */
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      /* opacity: 0.25; */
+      cursor: pointer;
+    }
+    .home-icon:hover {
+      opacity: 1;
+      background: var(--blue);
+    }
+    .home-icon svg {
+      width: 65%;
+      fill: var(--gray-0);
+    }
+    .home-icon,
+    .game-reset {
+      display: none;
+    }
+
+    .logo img {
+      margin-bottom: 25px;
+    }
+    @media (min-width: 1024px) {
+      .logo img {
+        margin-left: 50px;
+      }
+       form {
+        margin-top: 20%;
+      }
+    }
+    @media (max-width: 768px) {
+      .logo img {
+        margin-left: 30px;
+        }
+        #image-loader {
+          padding-top: 24%;
+      }
+        .game-logo img {
+            margin-left: 6%;
+        }
+    }
+     @media (min-width: 768px) {
+      form {
+        margin-top: 20%;
+      }
+    }
+    @media (max-width: 767px) {
+      form {
+        margin-top: 70%;
+      }
+    } 
+    .adsbygoogle {
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+    <div id="image-loader">
+	    <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px;"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px;"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px;"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+            <div class="game-logo">
+                <img src="../assets/images/game-name/connect-4.png">
+            </div>
+            <div class='sticky-btm' id='sticky-btm'>
+                <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+                <div class='sticky-btm-content'>
+                <ins class="adsbygoogle"
+                     style="display:inline-block;height:70px;width:100%;line-height:70px; background: transparent;"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="4737125238"
+                     ></ins><script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                </div>
+            </div>
+        
+        </div>
+        <div class="loader-custome">
+            <span class="loader"></span>
+        </div>
+        <div id="button-container">
+            <button class="start-button start-g" id="btn-start-modal">START GAME</button>
+            <button class="more-button more-g">MORE GAMES</button>
+        </div>
+    </div>
+
+  <div id="main" style="display: none;">
+    <form>
+      <div class="land-of-three">
+        <!-- Home Button -->
+        <!-- <a href="https://baseapk.me"> -->
+          <button class="home-icon faux-button" type="button" title="Home">
+            <svg class="" viewBox="0 0 24 24">
+              <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"></path>
+            </svg>
+          </button>
+        <!-- </a> -->
+        <button class="game-reset faux-button" type="reset" title="Reset">
+          <svg class="reset" viewBox="0 0 24 24">
+            <path
+              d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z">
+            </path>
+          </svg>
+        </button>
+        <!-- <div class="screen screen--intro">
+          <div class="dialog">
+            <div class="dialog__content dialog__content--intro">
+              <h1>:has Connect 4?</h1>
+              <p>You know the drill!</p>
+              <label class="faux-button" id="btn-start-modal" for="dismiss">Ready?</label>
+              <label class="faux-button" for=""><a class="home-button">Back to Home</a></label>
+            </div>
+          </div>
+        </div> -->
+        <div class="board-container">
+          <div class="board" style="--rows: 6; --columns: 7; --disc-count: 42;">
+            <div class="board__aesthetics">
+              <div class="board__cage">
+                <div class="cuboid">
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                  <div class="cuboid__side"></div>
+                </div>
+              </div>
+              <div class="board__leg board__leg--left">
+                <div class="leg">
+                  <div class="leg__upright">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                  <div class="leg__foot">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__leg board__leg--right">
+                <div class="leg">
+                  <div class="leg__upright">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                  <div class="leg__foot">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-6" style="--row: 1;">
+                <input type="checkbox" id="s-6" data-row="s-1" data-column="s-1" />
+                <input type="checkbox" id="p-6" data-row="p-1" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-5" style="--row: 2;">
+                <input type="checkbox" id="s-5" data-row="s-2" data-column="s-1" />
+                <input type="checkbox" id="p-5" data-row="p-2" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-4" style="--row: 3;">
+                <input type="checkbox" id="s-4" data-row="s-3" data-column="s-1" />
+                <input type="checkbox" id="p-4" data-row="p-3" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-3" style="--row: 4;">
+                <input type="checkbox" id="s-3" data-row="s-4" data-column="s-1" />
+                <input type="checkbox" id="p-3" data-row="p-4" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-2" style="--row: 5;">
+                <input type="checkbox" id="s-2" data-row="s-5" data-column="s-1" />
+                <input type="checkbox" id="p-2" data-row="p-5" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-1" style="--row: 6;">
+                <input type="checkbox" id="s-1" data-row="s-6" data-column="s-1" />
+                <input type="checkbox" id="p-1" data-row="p-6" data-column="p-1" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-12" style="--row: 1;">
+                <input type="checkbox" id="s-12" data-row="s-1" data-column="s-2" />
+                <input type="checkbox" id="p-12" data-row="p-1" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-11" style="--row: 2;">
+                <input type="checkbox" id="s-11" data-row="s-2" data-column="s-2" />
+                <input type="checkbox" id="p-11" data-row="p-2" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-10" style="--row: 3;">
+                <input type="checkbox" id="s-10" data-row="s-3" data-column="s-2" />
+                <input type="checkbox" id="p-10" data-row="p-3" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-9" style="--row: 4;">
+                <input type="checkbox" id="s-9" data-row="s-4" data-column="s-2" />
+                <input type="checkbox" id="p-9" data-row="p-4" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-8" style="--row: 5;">
+                <input type="checkbox" id="s-8" data-row="s-5" data-column="s-2" />
+                <input type="checkbox" id="p-8" data-row="p-5" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-7" style="--row: 6;">
+                <input type="checkbox" id="s-7" data-row="s-6" data-column="s-2" />
+                <input type="checkbox" id="p-7" data-row="p-6" data-column="p-2" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-18" style="--row: 1;">
+                <input type="checkbox" id="s-18" data-row="s-1" data-column="s-3" />
+                <input type="checkbox" id="p-18" data-row="p-1" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-17" style="--row: 2;">
+                <input type="checkbox" id="s-17" data-row="s-2" data-column="s-3" />
+                <input type="checkbox" id="p-17" data-row="p-2" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-16" style="--row: 3;">
+                <input type="checkbox" id="s-16" data-row="s-3" data-column="s-3" />
+                <input type="checkbox" id="p-16" data-row="p-3" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-15" style="--row: 4;">
+                <input type="checkbox" id="s-15" data-row="s-4" data-column="s-3" />
+                <input type="checkbox" id="p-15" data-row="p-4" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-14" style="--row: 5;">
+                <input type="checkbox" id="s-14" data-row="s-5" data-column="s-3" />
+                <input type="checkbox" id="p-14" data-row="p-5" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-13" style="--row: 6;">
+                <input type="checkbox" id="s-13" data-row="s-6" data-column="s-3" />
+                <input type="checkbox" id="p-13" data-row="p-6" data-column="p-3" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-24" style="--row: 1;">
+                <input type="checkbox" id="s-24" data-row="s-1" data-column="s-4" />
+                <input type="checkbox" id="p-24" data-row="p-1" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-23" style="--row: 2;">
+                <input type="checkbox" id="s-23" data-row="s-2" data-column="s-4" />
+                <input type="checkbox" id="p-23" data-row="p-2" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-22" style="--row: 3;">
+                <input type="checkbox" id="s-22" data-row="s-3" data-column="s-4" />
+                <input type="checkbox" id="p-22" data-row="p-3" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-21" style="--row: 4;">
+                <input type="checkbox" id="s-21" data-row="s-4" data-column="s-4" />
+                <input type="checkbox" id="p-21" data-row="p-4" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-20" style="--row: 5;">
+                <input type="checkbox" id="s-20" data-row="s-5" data-column="s-4" />
+                <input type="checkbox" id="p-20" data-row="p-5" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-19" style="--row: 6;">
+                <input type="checkbox" id="s-19" data-row="s-6" data-column="s-4" />
+                <input type="checkbox" id="p-19" data-row="p-6" data-column="p-4" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-30" style="--row: 1;">
+                <input type="checkbox" id="s-30" data-row="s-1" data-column="s-5" />
+                <input type="checkbox" id="p-30" data-row="p-1" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-29" style="--row: 2;">
+                <input type="checkbox" id="s-29" data-row="s-2" data-column="s-5" />
+                <input type="checkbox" id="p-29" data-row="p-2" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-28" style="--row: 3;">
+                <input type="checkbox" id="s-28" data-row="s-3" data-column="s-5" />
+                <input type="checkbox" id="p-28" data-row="p-3" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-27" style="--row: 4;">
+                <input type="checkbox" id="s-27" data-row="s-4" data-column="s-5" />
+                <input type="checkbox" id="p-27" data-row="p-4" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-26" style="--row: 5;">
+                <input type="checkbox" id="s-26" data-row="s-5" data-column="s-5" />
+                <input type="checkbox" id="p-26" data-row="p-5" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-25" style="--row: 6;">
+                <input type="checkbox" id="s-25" data-row="s-6" data-column="s-5" />
+                <input type="checkbox" id="p-25" data-row="p-6" data-column="p-5" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-36" style="--row: 1;">
+                <input type="checkbox" id="s-36" data-row="s-1" data-column="s-6" />
+                <input type="checkbox" id="p-36" data-row="p-1" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-35" style="--row: 2;">
+                <input type="checkbox" id="s-35" data-row="s-2" data-column="s-6" />
+                <input type="checkbox" id="p-35" data-row="p-2" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-34" style="--row: 3;">
+                <input type="checkbox" id="s-34" data-row="s-3" data-column="s-6" />
+                <input type="checkbox" id="p-34" data-row="p-3" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-33" style="--row: 4;">
+                <input type="checkbox" id="s-33" data-row="s-4" data-column="s-6" />
+                <input type="checkbox" id="p-33" data-row="p-4" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-32" style="--row: 5;">
+                <input type="checkbox" id="s-32" data-row="s-5" data-column="s-6" />
+                <input type="checkbox" id="p-32" data-row="p-5" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-31" style="--row: 6;">
+                <input type="checkbox" id="s-31" data-row="s-6" data-column="s-6" />
+                <input type="checkbox" id="p-31" data-row="p-6" data-column="p-6" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="board__column">
+              <!-- I tells you the row or the distance being travelled -->
+              <div class="board__cell move-42" style="--row: 1;">
+                <input type="checkbox" id="s-42" data-row="s-1" data-column="s-7" />
+                <input type="checkbox" id="p-42" data-row="p-1" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-41" style="--row: 2;">
+                <input type="checkbox" id="s-41" data-row="s-2" data-column="s-7" />
+                <input type="checkbox" id="p-41" data-row="p-2" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-40" style="--row: 3;">
+                <input type="checkbox" id="s-40" data-row="s-3" data-column="s-7" />
+                <input type="checkbox" id="p-40" data-row="p-3" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-39" style="--row: 4;">
+                <input type="checkbox" id="s-39" data-row="s-4" data-column="s-7" />
+                <input type="checkbox" id="p-39" data-row="p-4" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-38" style="--row: 5;">
+                <input type="checkbox" id="s-38" data-row="s-5" data-column="s-7" />
+                <input type="checkbox" id="p-38" data-row="p-5" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="board__cell move-37" style="--row: 6;">
+                <input type="checkbox" id="s-37" data-row="s-6" data-column="s-7" />
+                <input type="checkbox" id="p-37" data-row="p-6" data-column="p-7" />
+                <div class="board__disc disc">
+                  <div class="disc__piece">
+                    <div class="cuboid">
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                      <div class="cuboid__side"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="win">
+              <div class="screen">
+                <div class="dialog">
+                  <div class="dialog__content dialog__content--win">
+                    <h1>Winner!</h1>
+                    <div class="win-disc"></div>
+                    <button class="faux-button" type="reset" title="Reset Board">Play again</button>
+                  </div>
+                  <div class="dialog__content dialog__content--draw">
+                    <h1>Really?</h1>
+                    <button class="faux-button" type="reset" title="Reset Board">Replay</button>
+                  </div>
+                  <button class="faux-button" title="Reset Board" style="margin: 10px;"><a class="home-button">
+                      Back to Home</a>
+                  </button>
+                  <!-- <div class="dialog__content dialog__content--win">
+                      <button class="faux-button home-btn">
+                          <a href="https://baseapk.me">Back to Home</a>
+                      </button>
+                    </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="board__controls">
+              <div class="controls">
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-6" data-for="move-6" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-6"></label>
+                          <label class="board__move" for="p-6"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-5" data-for="move-5" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-5"></label>
+                          <label class="board__move" for="p-5"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-4" data-for="move-4" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-4"></label>
+                          <label class="board__move" for="p-4"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-3" data-for="move-3" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-3"></label>
+                          <label class="board__move" for="p-3"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-2" data-for="move-2" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-2"></label>
+                          <label class="board__move" for="p-2"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-1" data-for="move-1" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-1"></label>
+                          <label class="board__move" for="p-1"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-12" data-for="move-12" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-12"></label>
+                          <label class="board__move" for="p-12"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-11" data-for="move-11" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-11"></label>
+                          <label class="board__move" for="p-11"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-10" data-for="move-10" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-10"></label>
+                          <label class="board__move" for="p-10"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-9" data-for="move-9" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-9"></label>
+                          <label class="board__move" for="p-9"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-8" data-for="move-8" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-8"></label>
+                          <label class="board__move" for="p-8"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-7" data-for="move-7" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-7"></label>
+                          <label class="board__move" for="p-7"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-18" data-for="move-18" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-18"></label>
+                          <label class="board__move" for="p-18"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-17" data-for="move-17" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-17"></label>
+                          <label class="board__move" for="p-17"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-16" data-for="move-16" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-16"></label>
+                          <label class="board__move" for="p-16"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-15" data-for="move-15" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-15"></label>
+                          <label class="board__move" for="p-15"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-14" data-for="move-14" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-14"></label>
+                          <label class="board__move" for="p-14"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-13" data-for="move-13" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-13"></label>
+                          <label class="board__move" for="p-13"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-24" data-for="move-24" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-24"></label>
+                          <label class="board__move" for="p-24"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-23" data-for="move-23" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-23"></label>
+                          <label class="board__move" for="p-23"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-22" data-for="move-22" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-22"></label>
+                          <label class="board__move" for="p-22"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-21" data-for="move-21" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-21"></label>
+                          <label class="board__move" for="p-21"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-20" data-for="move-20" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-20"></label>
+                          <label class="board__move" for="p-20"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-19" data-for="move-19" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-19"></label>
+                          <label class="board__move" for="p-19"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-30" data-for="move-30" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-30"></label>
+                          <label class="board__move" for="p-30"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-29" data-for="move-29" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-29"></label>
+                          <label class="board__move" for="p-29"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-28" data-for="move-28" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-28"></label>
+                          <label class="board__move" for="p-28"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-27" data-for="move-27" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-27"></label>
+                          <label class="board__move" for="p-27"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-26" data-for="move-26" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-26"></label>
+                          <label class="board__move" for="p-26"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-25" data-for="move-25" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-25"></label>
+                          <label class="board__move" for="p-25"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-36" data-for="move-36" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-36"></label>
+                          <label class="board__move" for="p-36"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-35" data-for="move-35" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-35"></label>
+                          <label class="board__move" for="p-35"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-34" data-for="move-34" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-34"></label>
+                          <label class="board__move" for="p-34"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-33" data-for="move-33" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-33"></label>
+                          <label class="board__move" for="p-33"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-32" data-for="move-32" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-32"></label>
+                          <label class="board__move" for="p-32"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-31" data-for="move-31" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-31"></label>
+                          <label class="board__move" for="p-31"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="board__column">
+                  <div class="board__disc disc disc--ghost">
+                    <div class="disc__piece">
+                      <div class="cuboid">
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                        <div class="cuboid__side"></div>
+                      </div>
+                    </div>
+                  </div><!-- I tells you the row or the distance being travelled -->
+                  <div class="board__labels move-42" data-for="move-42" style="--row: 1;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-42"></label>
+                          <label class="board__move" for="p-42"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-41" data-for="move-41" style="--row: 2;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-41"></label>
+                          <label class="board__move" for="p-41"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-40" data-for="move-40" style="--row: 3;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-40"></label>
+                          <label class="board__move" for="p-40"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-39" data-for="move-39" style="--row: 4;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-39"></label>
+                          <label class="board__move" for="p-39"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-38" data-for="move-38" style="--row: 5;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-38"></label>
+                          <label class="board__move" for="p-38"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board__labels move-37" data-for="move-37" style="--row: 6;">
+                    <div class="cuboid">
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                      </div>
+                      <div class="cuboid__side">
+                        <div class="move-controls">
+                          <label class="board__move" for="s-37"></label>
+                          <label class="board__move" for="p-37"></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <button type="reset">Reset</button> -->
+    </form>
+    <input type="checkbox" id="dismiss" />
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+  
+  <script type="text/javascript" src="../assets/js/common.js" defer></script>
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+  <script>
+      fetch('../custom-popup.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('custom-popup-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+      let gameElement = document.documentElement; // Fullscreen the whole page
+
+      if (gameElement.requestFullscreen) {
+        gameElement.requestFullscreen();
+      } else if (gameElement.mozRequestFullScreen) { // Firefox
+        gameElement.mozRequestFullScreen();
+      } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+        gameElement.webkitRequestFullscreen();
+      } else if (gameElement.msRequestFullscreen) { // IE/Edge
+        gameElement.msRequestFullscreen();
+      }
+      document.getElementById('image-loader').style.display = 'none';
+      document.getElementById('main').style.display = '';
+      document.body.style.background = '#302b2b';
+        
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Connect-4 Started'
+        });
+    });
+    
+    document.getElementById("btn-start-modal").addEventListener("click", function () {
+        document.querySelector(".home-icon").style.display = "grid";
+        document.querySelector(".game-reset").style.display = "grid";
+    });
+
+  </script>
+</body>
+</html>

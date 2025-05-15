@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Ghost Bustin</title>
+  <link rel="shortcut icon" href="../../assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+
+  <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+  <link rel="preload" href="../assets/images/game-name/ghost-bustin.png" as="image" type="image/png">
+  
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>
+  <!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+  <style>
+    .home-button {
+      cursor: pointer;
+      background: #fff;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      padding: 8px 12px;
+      text-decoration: none;
+      text-align: center;
+      grid-column: 2;
+      font-size: 14px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+    .home-button:hover,
+    button:hover {
+      background: #6c7a89;
+    }
+    .home-button-play {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #fff;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 8px 12px;
+      text-decoration: none;
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+    .home-button-play:hover {
+      background: #6c7a89;
+    }
+    @media (max-width: 768px) {
+      .game-logo img {
+        width: 225px;
+      }
+      #image-loader {
+          padding-top: 17%;
+      }
+    }
+    game-logo img {
+      margin-bottom: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="image-loader">
+    <!-- sticky ads start -->
+    <div id="FloatAdx-left">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div id="FloatAdx-right">
+      <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+        data-ad-client="ca-pub-8263720079379422" data-ad-slot="2931055714"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <!-- sticky ads end -->
+
+    <div id="image-container">
+      <div class="top-adx" style="height: 100px !important;">
+        <!-- Start game screen -->
+        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:100px"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="8787023214"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="game-logo">
+        <img src="../assets/images/game-name/ghost-bustin.png">
+      </div>
+    </div>
+    <div class="loader-custome">
+      <span class="loader"></span>
+    </div>
+    <div id="button-container">
+      <button class="start-button start-g">START GAME</button>
+      <button class="more-button more-g">MORE GAMES</button>
+    </div>
+
+    <div class='sticky-btm' id='sticky-btm'>
+      <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg
+          viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'>
+          <path
+            d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z' />
+        </svg></div>
+      <div class='sticky-btm-content'>
+        <ins class="adsbygoogle" style="display:inline-block;height:70px;width:100%;line-height:70px;"
+          data-ad-client="ca-pub-8263720079379422" data-ad-slot="4737125238"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" style="display: none;">
+    <form>
+      <input class="menu" type="checkbox" />
+      <!-- <div class="title-screen">
+        <div class="title-screen__content">
+          <svg class="ghost__image-body title-ghost" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+            <g id="layer1" transform="translate(0,-922.36216)">
+              <path class="ghost__path" id="path4149"
+                d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </path>
+              <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </circle>
+              <circle class="ghost__eyes" id="circle4156"
+                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+              <path class="ghost__mouth" id="path4158"
+                d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </path>
+              <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                <rect id="rect4162"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                  width="2" height="15" x="692.03461" y="658.58441"
+                  transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                  y="-700.53461" x="665.08441" height="15" width="2"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                </rect>
+              </g>
+              <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)" y="658.58441"
+                  x="692.03461" height="15" width="2"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                </rect>
+                <rect id="rect4175"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                  width="2" height="15" x="665.08441" y="-700.53461"
+                  transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+              </g>
+            </g>
+          </svg>
+          <h1 class="title">Ghost <br /> Bustin'</h1>
+          <p class="description">
+            You'll get 15 seconds to bust as many ghosts as you can.
+            Colored ghosts score more points!
+          </p>
+          <button>Start</button>
+          <a class="home-button">Back to Home</a>
+        </div>
+      </div> -->
+      <div class="backdrop"></div>
+      <a class="home-button-play">Back to Home</a>
+      <div class="game" style="--rows: 3; --cols: 3">
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 1.3458155259806195; --delay: 1; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <path id="path4158"
+                    d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                    <rect id="rect4217"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <path class="ghost__eyes" id="circle4221"
+                    d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <path class="ghost__eyes" id="path4224"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.4806182333652032; --delay: 4; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <circle class="ghost__eyes" id="circle4156"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                    <path class="ghost__mouth" id="path4158"
+                      d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                      transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                      <rect id="rect4162"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 1.8456744880868625; --delay: 4; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path id="path4158"
+                        d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                        <rect id="rect4217"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <path class="ghost__eyes" id="circle4221"
+                        d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path class="ghost__eyes" id="path4224"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                      </path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 1.1084936554659863; --delay: 5; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.6887150599600156; --delay: 5; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <circle class="ghost__eyes" id="circle4156"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                    <path class="ghost__mouth" id="path4158"
+                      d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                      transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                      <rect id="rect4162"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 3.289344399279729; --delay: 3; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                      <path class="ghost__mouth" id="path4158"
+                        d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                        transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 1.6275451476102563; --delay: 1; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <path id="path4158"
+                    d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                    <rect id="rect4217"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <path class="ghost__eyes" id="circle4221"
+                    d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <path class="ghost__eyes" id="path4224"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                  </path>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 3.0934155901958253; --delay: 2; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <circle class="ghost__eyes" id="circle4156"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="76.471283" cy="960.05237" r="5"></circle>
+                    <path id="path4158"
+                      d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                      <rect id="rect4162"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 2.987164785490191; --delay: 5; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path id="path4158"
+                        d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                        <rect id="rect4217"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <path class="ghost__eyes" id="circle4221"
+                        d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path class="ghost__eyes" id="path4224"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                      </path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 2.359983115149618; --delay: 5; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.563971441066289; --delay: 2; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <path id="path4158"
+                      d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                      <rect id="rect4217"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <path class="ghost__eyes" id="circle4221"
+                      d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <path class="ghost__eyes" id="path4224"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                    </path>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 1.2055997515718617; --delay: 5; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="76.471283" cy="960.05237" r="5"></circle>
+                      <path id="path4158"
+                        d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                        transform="translate(57.414617,-0.98990468)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 0.8622223228871024; --delay: 3; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 2.5510145767652936; --delay: 5; --color: #c4fafb; --score: 5">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <circle class="ghost__eyes" id="circle4156"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                    <path class="ghost__mouth" id="path4158"
+                      d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                      transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                      <rect id="rect4162"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 1.3676479584819803; --delay: 1; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path id="path4158"
+                        d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                        <rect id="rect4217"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <path class="ghost__eyes" id="circle4221"
+                        d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <path class="ghost__eyes" id="path4224"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                      </path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 3.165438812309045; --delay: 2; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.1838927182640933; --delay: 1; --color: #ace7ff; --score: 5">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                      transform="matrix(1.6637807,0,0,1.6637807,28.456943,-641.01528)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                    <circle class="ghost__eyes" id="path4245" r="7.5" cy="958.1463" cx="38.385101"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4247"
+                      transform="matrix(1.6637807,0,0,1.6637807,6.6789885,-640.81728)">
+                      <rect id="rect4249"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4251" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <circle class="ghost__eyes" id="circle4253"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="60.163055" cy="957.9483" r="7.5"></circle>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 1.1057295878298796; --delay: 2; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                      <path class="ghost__mouth" id="path4158"
+                        d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                        transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 3.0218575491445376; --delay: 3; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                    transform="matrix(1.6637807,0,0,1.6637807,28.456943,-641.01528)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                  <circle class="ghost__eyes" id="path4245" r="7.5" cy="958.1463" cx="38.385101"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4247"
+                    transform="matrix(1.6637807,0,0,1.6637807,6.6789885,-640.81728)">
+                    <rect id="rect4249"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4251" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <circle class="ghost__eyes" id="circle4253"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="60.163055" cy="957.9483" r="7.5"></circle>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.7538984745339845; --delay: 4; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <path id="path4158"
+                      d="m 64.541935,968.77294 c -10e-7,1.76535 -11.355147,5.78254 -17.039796,5.78254 -5.684647,0 -16.023096,-4.26665 -16.023098,-6.03199 2e-6,-1.76535 11.896477,3.67918 17.581124,3.67918 5.684648,0 15.481769,-5.19507 15.48177,-3.42973 z"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(18.907238,-4.0586249)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4215" transform="translate(38.309414,-3.8606434)">
+                      <rect id="rect4217"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4219" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <path class="ghost__eyes" id="circle4221"
+                      d="m 62.069108,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <path class="ghost__eyes" id="path4224"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      d="m 42.666932,959.55738 c 0,2.70675 -2.194256,-3.01825 -4.901009,-3.01825 -2.706753,0 -4.901009,5.725 -4.901009,3.01825 0,-2.70675 2.194256,-4.90101 4.901009,-4.90101 2.706753,0 4.901009,2.19426 4.901009,4.90101 z">
+                    </path>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 1.0703471983532977; --delay: 5; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="76.471283" cy="960.05237" r="5"></circle>
+                      <path id="path4158"
+                        d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                        transform="translate(57.414617,-0.98990468)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 1.623300940893702; --delay: 1; --color: #fff; --score: 1">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 1.3350223967589343; --delay: 1; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                      transform="matrix(1.6637807,0,0,1.6637807,28.456943,-641.01528)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                    <circle class="ghost__eyes" id="path4245" r="7.5" cy="958.1463" cx="38.385101"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4247"
+                      transform="matrix(1.6637807,0,0,1.6637807,6.6789885,-640.81728)">
+                      <rect id="rect4249"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4251" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <circle class="ghost__eyes" id="circle4253"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="60.163055" cy="957.9483" r="7.5"></circle>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container"
+                style="--speed: 1.0307101792341173; --delay: 2; --color: #ace7ff; --score: 5">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="76.471283" cy="960.05237" r="5"></circle>
+                      <path id="path4158"
+                        d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171"
+                        transform="translate(57.414617,-0.98990468)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ghost-pen">
+          <div class="ghost__container" style="--speed: 1.604305991771724; --delay: 1; --color: #ace7ff; --score: 5">
+            <input class="ghost" type="checkbox" />
+            <div class="ghost__image">
+              <svg class="ghost__image-body" preserveAspectRatio="xMinYMin" viewBox="0 0 100 130">
+                <g id="layer1" transform="translate(0,-922.36216)">
+                  <path class="ghost__path" id="path4149"
+                    d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                    style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <circle class="ghost__eyes" id="path4152" r="5" cy="961.0423" cx="19.056681"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </circle>
+                  <circle class="ghost__eyes" id="circle4156"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                    cx="76.471283" cy="960.05237" r="5"></circle>
+                  <path id="path4158"
+                    d="m 79.58852,970.29888 c -5e-6,2.4602 -14.18229,4.45458 -31.677023,4.45458 -17.494733,0 -31.677018,-1.99438 -31.677023,-4.45458 5e-6,-2.4602 14.380271,0.099 31.875004,0.099 17.494733,0 31.479037,-2.55919 31.479042,-0.099 z"
+                    style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                  </path>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4167">
+                    <rect id="rect4162"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="692.03461" y="658.58441"
+                      transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                    <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                      y="-700.53461" x="665.08441" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                  </g>
+                  <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(57.414617,-0.98990468)">
+                    <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                      y="658.58441" x="692.03461" height="15" width="2"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </rect>
+                    <rect id="rect4175"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      width="2" height="15" x="665.08441" y="-700.53461"
+                      transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div class="ghost__container" style="--speed: 0.859841405115159; --delay: 2; --color: #fff; --score: 1">
+              <input class="ghost" type="checkbox" />
+              <div class="ghost__image">
+                <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                  <g id="layer1" transform="translate(0,-922.36216)">
+                    <path class="ghost__path" id="path4149"
+                      d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </circle>
+                    <circle class="ghost__eyes" id="circle4156"
+                      style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                      cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                    <path class="ghost__mouth" id="path4158"
+                      d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                      style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                    </path>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                      transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                      <rect id="rect4162"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="692.03461" y="658.58441"
+                        transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                      <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                        y="-700.53461" x="665.08441" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                    </g>
+                    <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                      <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                        y="658.58441" x="692.03461" height="15" width="2"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </rect>
+                      <rect id="rect4175"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        width="2" height="15" x="665.08441" y="-700.53461"
+                        transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="ghost__container" style="--speed: 0.8741763952693615; --delay: 1; --color: #fff; --score: 1">
+                <input class="ghost" type="checkbox" />
+                <div class="ghost__image">
+                  <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+                    <g id="layer1" transform="translate(0,-922.36216)">
+                      <path class="ghost__path" id="path4149"
+                        d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </circle>
+                      <circle class="ghost__eyes" id="circle4156"
+                        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                        cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+                      <path class="ghost__mouth" id="path4158"
+                        d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                        style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                      </path>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                        transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                        <rect id="rect4162"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="692.03461" y="658.58441"
+                          transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                        <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                          y="-700.53461" x="665.08441" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                      </g>
+                      <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                        <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"
+                          y="658.58441" x="692.03461" height="15" width="2"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                        </rect>
+                        <rect id="rect4175"
+                          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                          width="2" height="15" x="665.08441" y="-700.53461"
+                          transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="end">
+        <h1 class="title">Game Over!</h1>
+        <h1 class="title score">You scored &nbsp;</h1>
+        <button type="reset" class="reset-btn">Try again?</button>
+        <a class="home-button">Back to Home</a>
+        <div class="credit-ghost">
+          <svg class="ghost__image-body" viewBox="0 0 100 130" preserveAspectRatio="xMinYMin">
+            <g id="layer1" transform="translate(0,-922.36216)">
+              <path class="ghost__path" id="path4149"
+                d="m 87.104126,985.99028 c 3e-6,18.29482 23.310064,51.08502 7.251515,64.80642 -4.508673,3.8525 -10.735588,-6.2194 -16.533188,-5.808 -4.489803,0.3185 -7.636172,5.7797 -12.112396,6.2655 -5.152434,0.559 -9.879869,-4.3961 -15.050164,-4.066 -4.493939,0.2869 -8.076853,5.0762 -12.578149,5.1722 -4.822196,0.1028 -8.903453,-4.2416 -13.677721,-4.9617 -6.489307,-0.9788 -15.1515178,5.9929 -19.6454524,0.9765 -14.2159436,-15.8688 8.0865824,-46.7737 6.6754904,-65.00824 -1.7280703,-22.33068 -1.210964,-29.61106 6.765096,-41.60022 7.976059,-11.98915 18.994883,-19.4046 31.165941,-19.4046 12.171058,0 23.189882,7.41545 31.165941,19.4046 7.97606,11.98916 6.573083,25.92871 6.573087,44.22354 z"
+                style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </path>
+              <circle class="ghost__eyes" id="path4152" r="4.9010091" cy="957.77557" cx="41.527569"
+                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </circle>
+              <circle class="ghost__eyes" id="circle4156"
+                style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                cx="64.691391" cy="955.00385" r="8.6626558"></circle>
+              <path class="ghost__mouth" id="path4158"
+                d="m 74.836967,972.6979 c -3e-6,11.63211 -14.670414,22.44764 -25.440609,22.44764 -10.770196,0 -19.303184,-0.71848 -19.303187,-12.35059 3e-6,-11.63211 8.852855,-13.5886 19.62305,-13.5886 10.770195,0 25.120743,-8.14052 25.120746,3.49155 z"
+                style="fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+              </path>
+              <g class="ghost__eyes ghost__eyes--busted" id="g4167"
+                transform="matrix(1.5105663,0,0,1.5105663,35.905034,-496.71423)">
+                <rect id="rect4162"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                  width="2" height="15" x="692.03461" y="658.58441"
+                  transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)"></rect>
+                <rect id="rect4165" transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"
+                  y="-700.53461" x="665.08441" height="15" width="2"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                </rect>
+              </g>
+              <g class="ghost__eyes ghost__eyes--busted" id="g4171" transform="translate(22.470903,-3.2666991)">
+                <rect id="rect4173" transform="matrix(0.70710678,0.70710678,-0.70710678,0.70710678,0,0)" y="658.58441"
+                  x="692.03461" height="15" width="2"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+                </rect>
+                <rect id="rect4175"
+                  style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                  width="2" height="15" x="665.08441" y="-700.53461"
+                  transform="matrix(-0.70710678,0.70710678,-0.70710678,-0.70710678,0,0)"></rect>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--custom popup -->
+  <div id="custom-popup-placeholder"></div>
+  <!--custom popup -->
+
+  <script type="text/javascript" src="../assets/js/common.js" defer></script>
+  <script>
+    fetch('../custom-popup.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('custom-popup-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+  </script>
+  <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+  <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+  <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+      let gameElement = document.documentElement; // Fullscreen the whole page
+
+      if (gameElement.requestFullscreen) {
+        gameElement.requestFullscreen();
+      } else if (gameElement.mozRequestFullScreen) { // Firefox
+        gameElement.mozRequestFullScreen();
+      } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+        gameElement.webkitRequestFullscreen();
+      } else if (gameElement.msRequestFullscreen) { // IE/Edge
+        gameElement.msRequestFullscreen();
+      }
+      document.getElementById('image-loader').style.display = 'none';
+      document.getElementById('main').style.display = '';
+
+      document.body.style.background = '#082113';
+      document.body.style.display = 'flex';
+      document.body.style.alignItems = 'center';
+      document.body.style.justifyContent = 'center';
+      document.body.style.fontFamily = "'Lato', sans-serif";
+      document.body.style.counterReset = 'score';
+
+      gtag('event', 'start_game_click', {
+        'event_category': 'StartGame',
+        'event_label': 'Ghost Bustin Started'
+      });
+    });
+
+  </script>
+</body>
+
+</html>

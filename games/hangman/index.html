@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="../assets/css/splash.css" rel="stylesheet" type="text/css">
+    <link href="../assets/css/group1_game.css" rel="stylesheet" type="text/css">
+    <link rel="preload" href="../assets/images/game-name/hangman.png" as="image" type="image/png">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5LR732BBVK');
+    </script>
+	<!--<script type="text/javascript" src="../assets/js/group1_auto_landing.js" async></script>-->
+	<style>
+	    @media (max-width: 768px) {
+         .top-adx {
+            height: 100px !important;
+            min-height: 100px !important;
+            max-height: 100px !important;
+            overflow: hidden;
+            }
+        }
+        .home-button {
+            display: inline-block;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            letter-spacing: 3px;
+            transition: 0.2s linear;
+            outline: none;
+            border-style: none;
+            background-color: darkgray;
+            color: black;
+            border-radius: 7px;
+        }
+        .home-button:hover {
+            background: green;
+            color: white;
+            outline: none;
+        }
+        /*.logo img {
+            margin-bottom: 37px;
+        }*/
+        @media (max-width: 768px) {
+            .game-logo img {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="image-loader">
+        <!-- sticky ads start -->
+		<div id="FloatAdx-left">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		<div id="FloatAdx-right">
+			<ins class="adsbygoogle"
+				style="display:inline-block;width:160px;height:600px"
+				data-ad-client="ca-pub-8263720079379422"
+				data-ad-slot="2931055714"></ins>
+			<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+	    <!-- sticky ads end -->
+	
+        <div id="image-container">
+            <div class="top-adx" style="height: 100px !important;">
+                <!-- Start game screen -->
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:300px;height:100px"
+                     data-ad-client="ca-pub-8263720079379422"
+                     data-ad-slot="8787023214"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+          <div class="game-logo">
+            <img src="../assets/images/game-name/hangman.png">
+          </div>
+        </div>
+    
+        <div class="loader-custome">
+         <span class="loader"></span>
+        </div>   
+        <div id="button-container">
+          <button class="start-button start-g">START GAME</button>
+          <button class="more-button more-g">MORE GAMES</button>
+        </div>
+        
+        <div class='sticky-btm' id='sticky-btm'>
+            <div class='sticky-btm-close' onclick='document.getElementById("sticky-btm").style.display="none"'><svg viewBox='0 0 512 512' xmlns='https://www.w3.org/2000/svg'><path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'/></svg></div>
+            <div class='sticky-btm-content'>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;height:70px;width:100%;line-height:70px;"
+                 data-ad-client="ca-pub-8263720079379422"
+                 data-ad-slot="4737125238"
+                 ></ins><script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+        </div>
+    </div>
+
+    <main id="main_div" style="display: none;">
+        <div class="outside-wrapper">
+            <h1 id="statusMessage"> Hangman Game </h1>
+        </div>
+        <div class="outside-wrapper">
+            <div class="inside-wrapper">
+                <svg version="1.1" id="hangknuckles" xmlns="https://www.w3.org/2000/svg"
+                    xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 169.28 205"
+                    enable-background="new 0 0 169.28 205" xml:space="preserve">
+                    <g id="hanger">
+                        <line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="170.259"
+                            y1="203.446" x2="0.781" y2="203.001" />
+                        <line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="38.779" y1="2"
+                            x2="39.279" y2="202" />
+                        <line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="139.78" y1="4"
+                            x2="34.78" y2="2" />
+                        <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="138.78" y1="4"
+                            x2="135.78" y2="49" />
+                        <line fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" x1="77.323" y1="2.51"
+                            x2="39.791" y2="28.042" />
+                    </g>
+                    <line id="show0" class="bodyPart hidden" fill="none" stroke="#000000" stroke-width="4"
+                        stroke-miterlimit="10" x1="136.78" y1="119" x2="148.78" y2="152" />
+                    <line id="show1" class="bodyPart hidden" fill="none" stroke="#000000" stroke-width="4"
+                        stroke-miterlimit="10" x1="137.78" y1="119" x2="114.78" y2="157" />
+                    <line id="show2" class="bodyPart hidden" fill="none" stroke="#000000" stroke-width="4"
+                        stroke-miterlimit="10" x1="136.78" y1="108" x2="99.28" y2="100.5" />
+                    <line id="show3" class="bodyPart hidden" fill="none" stroke="#000000" stroke-width="4"
+                        stroke-miterlimit="10" x1="136.78" y1="107" x2="166.28" y2="94.5" />
+                    <line id="show4" class="bodyPart hidden" stroke="#000000" stroke-width="4" stroke-miterlimit="10"
+                        x1="137.78" y1="82" x2="136.78" y2="120.5" />
+                    <image overflow="visible" id="show5" class="bodyPart hidden" width="96" height="96"
+                        xlink:href="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        transform="matrix(0.5426 0 0 0.516 110.2271 42.9535)">
+                    </image>
+                </svg>
+            </div>
+            <div class="inside-wrapper">
+                <div>
+                    <img id="life5" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                    <img id="life4" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                    <img id="life3" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                    <img id="life2" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                    <img id="life1" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                    <img id="life0" class="lives"
+                        src="https://res.cloudinary.com/dshmwg7vw/image/upload/v1550434128/icons8-ugandan-knuckles-96.png"
+                        alt="">
+                </div>
+                <div>
+                    <p id="wrongLetters" class="hidden">Wrong letters:<br> <span></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="outside-wrapper">
+            <div class="wrapper">
+                <p id="categoryName">Category:smtg</p>
+                <div id="guessWrapper">
+                </div>
+            </div>
+            <div class="button-wrapper">
+                <input type="text" id="userLetter" maxlength="1" size="4" autocomplete="off">
+                <button type="button" id="guessButton">Guess</button>
+            </div>
+            <div class="wrapper warning">
+                <span id="warningText" class="hidden"> </span>
+            </div>
+        </div>
+        <div class="outside-wrapper">
+            <a class="home-button">Back to Home</a>
+            <button type="button" id="newGame">New Game</button>
+        </div>
+    </main>
+
+    <!--custom popup -->
+    <div id="custom-popup-placeholder"></div>
+    <!--custom popup -->
+    
+    <script type="text/javascript" src="../assets/js/common.js" defer></script>
+    <script>
+        fetch('../custom-popup.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('custom-popup-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error("Error loading footer:", error));
+    </script>
+    <script>
+      setTimeout(() => {
+        const script = document.createElement("script");
+        script.src = "../assets/js/group1_auto_landing.js";
+        script.defer = true;
+        document.head.appendChild(script);
+      }, 1000); // Load after 2 seconds
+    </script>
+    <!-- Load Google Analytics on scroll -->
+    <script>
+      window.addEventListener("scroll", function loadGtag() {
+        const gtagScript = document.createElement("script");
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5LR732BBVK";
+        gtagScript.defer = true;
+        document.head.appendChild(gtagScript);
+        window.removeEventListener("scroll", loadGtag);
+      });
+    </script>
+    <script src="script.js" defer></script>
+    <script type="text/javascript" src="../assets/js/disable-click.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".top-adx").style.setProperty("height", "100px", "important");
+    });
+    document.querySelector(".start-button").addEventListener("click", function () {
+        let gameElement = document.documentElement; // Fullscreen the whole page
+
+        if (gameElement.requestFullscreen) {
+            gameElement.requestFullscreen();
+        } else if (gameElement.mozRequestFullScreen) { // Firefox
+            gameElement.mozRequestFullScreen();
+        } else if (gameElement.webkitRequestFullscreen) { // Chrome, Safari, Edge
+            gameElement.webkitRequestFullscreen();
+        } else if (gameElement.msRequestFullscreen) { // IE/Edge
+            gameElement.msRequestFullscreen();
+        }
+        
+        let splashCss = document.querySelector('link[href="../assets/css/splash.css"]');
+        if (splashCss) {
+            splashCss.remove(); // Removes the splash.css file
+        }
+
+        document.getElementById('image-loader').style.display = 'none';
+        document.getElementById('main_div').style.display = 'block';
+        // document.body.classList.remove("loader-background"); 
+        // Change background
+        document.body.style.backgroundImage = 'url("https://res.cloudinary.com/dshmwg7vw/image/upload/v1550486966/OCCNFD0.jpg")'; 
+        document.body.style.backgroundSize = 'cover'; /* Changed 'contain' to 'cover' for better appearance */
+        document.body.style.backgroundRepeat = 'no-repeat';
+        document.body.style.backgroundPosition = 'center'; /* Fixed invalid 'relative' value */
+
+        gtag('event', 'start_game_click', {
+          'event_category': 'StartGame',
+          'event_label': 'Hangman Started'
+        });
+    });
+</script>  
+</body>
+</html>
