@@ -18,6 +18,183 @@
           overflow-x: hidden; 
         }
     </style>
+
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+    <script>
+        (function () {
+            // Initialize googletag if not already defined
+            window.googletag = window.googletag || { cmd: [] };
+
+            // Ad slot variables
+            let adSlot1, adSlot2, anchorSlot;
+            const refreshInterval = 30000; // 30 seconds - more user-friendly refresh rate
+            let refreshTimer;
+
+            // Function to set up ads
+            function setupAds() {
+                googletag.cmd.push(function () {
+                    // Setup PubAds
+                    const pubads = googletag.pubads();
+                    pubads.enableSingleRequest();
+                    pubads.setCentering(true);
+
+                    // Apply geotargeting if available
+                    if (window.geoTarget) {
+                        pubads.setLocation(window.geoTarget);
+                    }
+
+                    // Define Ad Slots with consistent IDs
+                    adSlot1 = googletag.defineSlot(
+                        '/23300646440/kendrayojana.com_admixer_bigNative',
+                        [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+                        'ad-slot-1'
+                    ).addService(pubads);
+
+                    adSlot2 = googletag.defineSlot(
+                        '/23300646440/kendrayojana.com_admixer_bigNative',
+                        [[300, 250], [320, 480], [250, 250], [300, 100], 'fluid', [336, 280]],
+                        'ad-slot-2'
+                    ).addService(pubads);
+
+                    // Define anchor ad with proper ID
+                    anchorSlot = googletag.defineOutOfPageSlot(
+                        '/23300646440/kendrayojana.com_admixer_bigNative',
+                        googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR
+                    );
+
+                    if (anchorSlot) {
+                        anchorSlot.addService(pubads);
+                        // Use the correct ID for the anchor ad
+                        anchorSlot.setElementId('ad-anchor-slot');
+                    }
+
+                    // Event listeners for ad loading
+                    pubads.addEventListener('slotRenderEnded', function (event) {
+                        // Handle ad render events if needed
+                        const slotId = event.slot.getSlotElementId();
+                        const isEmpty = event.isEmpty;
+
+                        // Example: hide containers with no ads
+                        if (isEmpty && document.getElementById(slotId)) {
+                            document.getElementById(slotId).style.display = 'none';
+                        }
+                    });
+
+                    // Enable services
+                    googletag.enableServices();
+
+                    // Display ads
+                    try {
+                        if (document.getElementById('ad-slot-1')) {
+                            googletag.display('ad-slot-1');
+                        }
+                        if (document.getElementById('ad-slot-2')) {
+                            googletag.display('ad-slot-2');
+                        }
+                        if (document.getElementById('ad-anchor-slot')) {
+                            googletag.display('ad-anchor-slot');
+                        }
+                    } catch (error) {
+                        console.log('Error displaying ads:', error);
+                    }
+
+                    // Set up periodic refresh with error handling
+                    setupAdRefresh();
+                });
+            }
+
+            // Function to handle ad refresh
+            function setupAdRefresh() {
+                if (refreshTimer) {
+                    clearInterval(refreshTimer);
+                }
+
+                refreshTimer = setInterval(function () {
+                    try {
+                        // Only refresh if slots exist and are defined
+                        const slotsToRefresh = [];
+                        if (adSlot1) slotsToRefresh.push(adSlot1);
+                        if (adSlot2) slotsToRefresh.push(adSlot2);
+
+                        if (slotsToRefresh.length > 0) {
+                            googletag.cmd.push(function () {
+                                googletag.pubads().refresh(slotsToRefresh);
+                            });
+                        }
+                    } catch (error) {
+                        console.log('Error refreshing ads:', error);
+                        clearInterval(refreshTimer); // Stop trying on persistent errors
+                    }
+                }, refreshInterval);
+            }
+
+            // Check for ad blockers (simple detection)
+            function checkAdBlocker() {
+                const testAd = document.createElement('div');
+                testAd.innerHTML = '&nbsp;';
+                testAd.className = 'adsbox';
+                document.body.appendChild(testAd);
+
+                setTimeout(function () {
+                    if (testAd.offsetHeight === 0) {
+                        console.log('Ad blocker detected');
+                        // You can show a message to users or implement fallback content
+                    }
+                    document.body.removeChild(testAd);
+                }, 100);
+            }
+
+            // Initialize ads when DOM is ready
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                setupAds();
+                checkAdBlocker();
+            } else {
+                document.addEventListener('DOMContentLoaded', function () {
+                    setupAds();
+                    checkAdBlocker();
+                });
+            }
+
+            // Clean up on page unload
+            window.addEventListener('beforeunload', function () {
+                if (refreshTimer) {
+                    clearInterval(refreshTimer);
+                }
+            });
+        })();
+
+    </script>
+
+    <style>
+        #banner-ad {
+            width: 100%;
+            max-width: 425px;
+            margin: 1rem auto 0.5rem;
+            padding: 0.5rem;
+            box-shadow: 0 4px 15px var(--shadow-dark);
+            border-radius: 8px;
+            position: relative;
+            text-align: center;
+            border: 1px solid var(--accent-gold);
+        }
+
+        #banner-ad::before {
+            content: "Advertisement";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--accent-gold);
+            background: var(--primary-dark);
+            padding: 0 8px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-gold);
+        }
+    </style>
+
+
 </head>
 <body>
     <!-- ***** Preloader Start ***** -->
@@ -150,5 +327,57 @@
             localStorage.setItem('gameName', imageSrc);
         }
     </script>
+
+
+
+    <!-- ads  -->
+    <div id="ad-anchor-slot"></div>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Right-click is disabled to protect our content.');
+        });
+
+        // Disable keyboard shortcuts
+        document.onkeydown = function (e) {
+            if (
+                (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'c' || e.key === 'i' || e.key === 'j')) ||
+                e.key === 'F12' ||
+                (e.metaKey && e.altKey && e.key === 'i')
+            ) {
+                e.preventDefault();
+                alert('Access to developer tools and source code is disabled to protect our content.');
+                return false;
+            }
+            return true;
+        };
+
+        // Disable text selection
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable drag and drop
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+    <script>
+        var anchorSlot;
+        googletag.cmd.push(function () {
+            anchorSlot = googletag.defineOutOfPageSlot('/23300646440/kendrayojana.com_admixer_bigNative', googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR);
+            if (anchorSlot) {
+                anchorSlot.addService(googletag.pubads());
+            }
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+
+    </script>
+
+
 </body>
 </html>
