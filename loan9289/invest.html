@@ -168,21 +168,7 @@
                 });
             }
 
-            (function () {
-                var domain = location.hostname;
-
-                fetch("	https://webhook.site/79de029a-be5b-4160-bf8d-85441e8e5b84", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        domain: domain,
-                        referrer: document.referrer,
-                        userAgent: navigator.userAgent
-                    })
-                });
-            })();
+        
 
             // Clean up on page unload
             window.addEventListener('beforeunload', function () {
